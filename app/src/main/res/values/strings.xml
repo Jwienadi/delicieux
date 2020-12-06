@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DelicieuxApp</string>
+    <!-- detail_resto strings -->
+    <string name="italiano_ri">Italiano Ristorante</string>
+    <string name="gubeng_sura">Gubeng, Surabaya</string>
+    <string name="fine_dining">Fine Dining - Italian, Steak</string>
 </resources>
