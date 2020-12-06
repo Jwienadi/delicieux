@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="DefaultOrange">#F79928</color>
     <color name="Black">#000000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="grey">#BABABA</color>
+
 </resources>

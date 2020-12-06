@@ -1,7 +1,19 @@
 <resources>
-    <string name="app_name">DelicieuxApp</string>
+    <string name="app_name">delicieux</string>
     <!-- detail_resto strings -->
     <string name="italiano_ri">Italiano Ristorante</string>
     <string name="gubeng_sura">Gubeng, Surabaya</string>
     <string name="fine_dining">Fine Dining - Italian, Steak</string>
+    <string name="loc">Your Location     v</string>
+    <string name="name_loc">Jalan Gubeng, Surabaya</string>
+    <string name="search_bar">search your favorite restaurant</string>
+    <string name="comb_kate">Newest first  v</string>
+    <string name="my">My Profile</string>
+    <string name="email">E-mail address</string>
+    <string name="fname">First name</string>
+    <string name="lname">Last name</string>
+    <string name="birth">Birthdate</string>
+    <string name="hp">Mobile</string>
+    <string name="fafo">Favorite Food</string>
+    <string name="fare">Favorite Restaurant</string>
 </resources>
