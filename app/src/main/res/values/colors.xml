@@ -5,4 +5,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="DefaultOrange">#F79928</color>
     <color name="Black">#000000</color>
+    <color name="green">#087C0D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="limeGreen">#12DD63</color>
+    <color name="red1">#DD1212</color>
 </resources>

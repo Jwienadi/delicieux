@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/info_resto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/rectangle_1"
-    >
+    android:background="@drawable/rectangle_1">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="234dp"/>
@@ -28,14 +27,14 @@
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/italiano_ri"
+            android:text="@string/resto_name"
             android:textAppearance="@style/detailresto_nametitle"
             android:layout_gravity="center_horizontal"/>
         <TextView
-            android:id="@+id/title_detail"
+            android:id="@+id/title_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fine_dining"
+            android:text="@string/resto_type"
             android:textAppearance="@style/detailresto_info"
             android:layout_gravity="center_horizontal"
             />
@@ -44,7 +43,7 @@
             android:id="@+id/title_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/gubeng_sura"
+            android:text="@string/resto_loc"
             android:textAppearance="@style/detailresto_info"
             android:layout_gravity="center_horizontal"
             />
@@ -68,8 +67,142 @@
             android:textSize="13sp"
             android:textColor="@color/Black"
             />
-
     </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/rectangle_1"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="25dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <TextView
+            android:id="@+id/content_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency"
+            android:textAppearance="@style/detailresto_head"
+            android:textColor="@color/green"
+            android:textAllCaps="false"
+            android:layout_marginEnd="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost"
+            android:textAppearance="@style/detailresto_info"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment"
+                android:textAppearance="@style/detailresto_info"/>
+        </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN HOUR:"
+            style="@style/detailresto_head"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/content_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon - Fri : 11 AM - 10 PM"
+            android:textAppearance="@style/detailresto_info"/>
+        <TextView
+            android:id="@+id/content_timeofday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunch , Dinner"
+            android:textAppearance="@style/detailresto_info"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADDRESS:"
+            style="@style/detailresto_head"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/content_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jl. Sumatra No. 2, Gubeng, Surabaya"
+            android:textAppearance="@style/detailresto_info"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginTop="2dp"
+            android:drawableLeft="@drawable/ic_google_maps"
+            android:paddingHorizontal="7dp"
+            android:text="Open With Google Maps"
+            android:textSize="12sp"
+            android:background="@color/white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE:"
+            style="@style/detailresto_head"
+            android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/content_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+1234567"
+            android:textAppearance="@style/detailresto_info"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@drawable/ic_baseline_call_24"
+                android:text="Call"
+                android:textColor="@color/white"
+                android:paddingLeft="5dp"
+                android:elevation="2dp"
+                android:background="@color/DefaultOrange"/>
+    </LinearLayout>
+     <LinearLayout
+         android:id="@+id/content_details_area"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp">
+         <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@drawable/detailresto_info_green"
+         android:text="Wifi"
+         style="@style/detailresto_info"
+         android:layout_marginHorizontal="3dp"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/detailresto_info_green"
+             android:text="Wifi"
+             style="@style/detailresto_info"
+             android:layout_marginHorizontal="3dp"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/detailresto_info_red"
+             android:text="Wifi"
+             style="@style/detailresto_info"
+             android:layout_marginHorizontal="3dp"/>
+     </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
