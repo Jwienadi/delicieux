@@ -18,5 +18,7 @@
     <string name="hp">Mobile</string>
     <string name="fafo">Favorite Food</string>
     <string name="fare">Favorite Restaurant</string>
+    <string name="search">Search your location</string>
+    <string name="kliks">Search</string>
 
 </resources>

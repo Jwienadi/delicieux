@@ -147,7 +147,7 @@
             android:paddingHorizontal="7dp"
             android:text="Open With Google Maps"
             android:textSize="12sp"
-            android:background="@color/white"
+            android:background="@color/White"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_marginLeft="5dp"
                 android:drawableLeft="@drawable/ic_baseline_call_24"
                 android:text="Call"
-                android:textColor="@color/white"
+                android:textColor="@color/White"
                 android:paddingLeft="5dp"
                 android:elevation="2dp"
                 android:background="@color/DefaultOrange"/>

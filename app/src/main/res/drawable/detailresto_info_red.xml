@@ -6,6 +6,6 @@
         android:width="0.2dp"
         android:color="@color/red1" />
     <corners android:radius="3dp" />
-    <solid android:color="@color/white"/>
+    <solid android:color="@color/White"/>
     <padding android:left="6dp" android:right="6dp" android:bottom="3dp" android:top="3dp"  />
 </shape>
