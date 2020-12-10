@@ -4,7 +4,12 @@
     android:id="@+id/info_resto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/rectangle_1">
+    android:background="@color/White">
+    <FrameLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBar" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="234dp"/>
@@ -71,7 +76,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@+id/rectangle_1"
         android:layout_marginVertical="15dp"
@@ -205,4 +210,13 @@
      </LinearLayout>
 
     </LinearLayout>
+
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_tabXmlResource="@xml/bottombar_tabs" />
+
 </RelativeLayout>

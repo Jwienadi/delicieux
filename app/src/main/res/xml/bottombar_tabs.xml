@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_About"
+        icon="@drawable/ic_baseline_info_24"
+        title="About"
+        barColorWhenSelected="#F79928" />
+    <tab
+        id="@+id/tab_menu"
+        icon="@drawable/ic_baseline_menu_book_24"
+        title="Menu"
+        barColorWhenSelected="#F79928" />
+    <tab
+        id="@+id/tab_review"
+        icon="@drawable/ic_baseline_rate_review_24"
+        title="Review"
+        barColorWhenSelected="#F79928" />
+</tabs>
