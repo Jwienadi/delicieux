@@ -15,12 +15,12 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="27dp"
             android:layout_marginBottom="30dp"
             android:layout_gravity="center"
             android:src="@drawable/deliciux"/>
         <Button
-            android:id="@+id/dropdown"
+            android:id="@+id/btdropdown"
             android:layout_width="115dp"
             android:layout_height="25dp"
             android:layout_marginLeft="11dp"
@@ -55,6 +55,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="120dp"
                 android:layout_height="35dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:text="@string/comb_kate"
                 android:background="@drawable/button_bar"
