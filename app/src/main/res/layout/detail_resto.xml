@@ -1,222 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/info_resto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/White">
-    <FrameLayout
-        android:id="@+id/contentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottomBar" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="234dp"/>
-    <!-- Rectangle 1 -->
-    <LinearLayout
-        android:id="@+id/rectangle_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rectangle_1"
-        android:elevation="4dp"
-        android:paddingVertical="10dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginHorizontal="40dp"
-        >
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/info_resto"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/White">
 
-        <!-- Italiano Ristorante -->
-        <TextView
-            android:id="@+id/title_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resto_name"
-            android:textAppearance="@style/detailresto_nametitle"
-            android:layout_gravity="center_horizontal"/>
-        <TextView
-            android:id="@+id/title_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resto_type"
-            android:textAppearance="@style/detailresto_info"
-            android:layout_gravity="center_horizontal"
-            />
-
-        <TextView
-            android:id="@+id/title_loc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resto_loc"
-            android:textAppearance="@style/detailresto_info"
-            android:layout_gravity="center_horizontal"
-            />
+        <ImageView
+            android:id="@+id/iv_title"
+            android:layout_width="match_parent"
+            android:layout_height="234dp"/>
+        <!-- Rectangle 1 -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/rectangle_1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
-        <RatingBar
-            android:id="@+id/title_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:rating="4.5"
-            style="?android:attr/ratingBarStyleSmall"
-            android:progressTint="@color/DefaultOrange"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.5"
-            android:textSize="13sp"
-            android:textColor="@color/Black"
-            />
-    </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/rectangle_1"
-        android:layout_marginVertical="15dp"
-        android:layout_marginHorizontal="25dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rectangle_1"
+            android:elevation="4dp"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginHorizontal="40dp"
             >
-        <TextView
-            android:id="@+id/content_currency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/currency"
-            android:textAppearance="@style/detailresto_head"
-            android:textColor="@color/green"
-            android:textAllCaps="false"
-            android:layout_marginEnd="10dp"
-            />
 
+            <!-- Italiano Ristorante -->
+            <TextView
+                android:id="@+id/tv_title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/detailresto_nametitle"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/tv_title_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/detailresto_info"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/tv_title_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/detailresto_info"
+                android:layout_gravity="center_horizontal"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+                <RatingBar
+                    android:id="@+id/rb_title_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:progressTint="@color/DefaultOrange"/>
+                <TextView
+                    android:id="@+id/tv_title_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/Black"
+                    />
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cost"
-            android:textAppearance="@style/detailresto_info"/>
+            android:orientation="vertical"
+            android:layout_below="@+id/rectangle_1"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="25dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/tv_content_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textAppearance="@style/detailresto_head"
+                    android:textColor="@color/green"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/detailresto_info"/>
+                        <TextView
+                            android:id="@+id/tv_content_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/detailresto_info"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_content_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/detailresto_info"/>
+                </LinearLayout>
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/payment"
+                android:text="OPEN HOUR:"
+                style="@style/detailresto_head"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/tv_content_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textAppearance="@style/detailresto_info"/>
-        </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OPEN HOUR:"
-            style="@style/detailresto_head"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:id="@+id/content_hour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mon - Fri : 11 AM - 10 PM"
-            android:textAppearance="@style/detailresto_info"/>
-        <TextView
-            android:id="@+id/content_timeofday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lunch , Dinner"
-            android:textAppearance="@style/detailresto_info"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADDRESS:"
-            style="@style/detailresto_head"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:id="@+id/content_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jl. Sumatra No. 2, Gubeng, Surabaya"
-            android:textAppearance="@style/detailresto_info"/>
+            <TextView
+                android:id="@+id/tv_content_timeofday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/detailresto_info"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADDRESS:"
+                style="@style/detailresto_head"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/tv_content_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/detailresto_info"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_marginTop="2dp"
-            android:drawableLeft="@drawable/ic_google_maps"
-            android:paddingHorizontal="7dp"
-            android:text="Open With Google Maps"
-            android:textSize="12sp"
-            android:background="@color/White"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PHONE:"
-            style="@style/detailresto_head"
-            android:layout_marginTop="10dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <TextView
-            android:id="@+id/content_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+1234567"
-            android:textAppearance="@style/detailresto_info"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
-                android:layout_marginLeft="5dp"
-                android:drawableLeft="@drawable/ic_baseline_call_24"
-                android:text="Call"
-                android:textColor="@color/White"
-                android:paddingLeft="5dp"
-                android:elevation="2dp"
-                android:background="@color/DefaultOrange"/>
-    </LinearLayout>
-     <LinearLayout
-         android:id="@+id/content_details_area"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="10dp">
-         <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:background="@drawable/detailresto_info_green"
-         android:text="Wifi"
-         style="@style/detailresto_info"
-         android:layout_marginHorizontal="3dp"/>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:background="@drawable/detailresto_info_green"
-             android:text="Wifi"
-             style="@style/detailresto_info"
-             android:layout_marginHorizontal="3dp"/>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:background="@drawable/detailresto_info_red"
-             android:text="Wifi"
-             style="@style/detailresto_info"
-             android:layout_marginHorizontal="3dp"/>
-     </LinearLayout>
+                android:layout_marginTop="2dp"
+                android:drawableLeft="@drawable/ic_google_maps"
+                android:paddingHorizontal="7dp"
+                android:text="Open With Google Maps"
+                android:textSize="12sp"
+                android:background="@color/White"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PHONE:"
+                style="@style/detailresto_head"
+                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_content_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/detailresto_info"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_baseline_call_24"
+                    android:text="Call"
+                    android:textColor="@color/White"
+                    android:paddingLeft="5dp"
+                    android:elevation="2dp"
+                    android:background="@color/DefaultOrange"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/content_details_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-    </LinearLayout>
+            </RelativeLayout>
 
+        </LinearLayout>
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottombar_tabs" />
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
