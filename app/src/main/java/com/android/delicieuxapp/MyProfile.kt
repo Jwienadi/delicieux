@@ -1,19 +1,14 @@
 package com.android.delicieuxapp
 
-
-import android.R.id
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.roughike.bottombar.BottomBar
-import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : AppCompatActivity() {
+class MyProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.myprofile);
 
         val bottomBar = findViewById<View>(R.id.bottomBar) as BottomBar
         bottomBar.setOnTabSelectListener { tabId ->
@@ -23,7 +18,5 @@ class MainActivity : AppCompatActivity() {
                 setContentView(R.layout.myprofile)
             }
         }
-
     }
-
 }

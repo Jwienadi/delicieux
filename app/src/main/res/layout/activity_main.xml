@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/homepage">
+    <FrameLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBar" />
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_tabXmlResource="@xml/bottombar_main" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,16 +37,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"
+            <LinearLayout
+                android:paddingTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:text="@string/search_bar"
-                android:textColor="@color/grey"
-                android:background="@drawable/background_form">
-            </EditText>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="12dp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:layout_width="340dp"
+                    android:layout_height="35dp"
+                    android:text="@string/search_bar"
+                    android:textColor="@color/grey"
+                    android:background="@drawable/background_form">
+                </EditText>
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/ic_baseline_search_24"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
             <Button
                 android:layout_marginTop="20dp"
                 android:layout_width="120dp"
@@ -58,7 +85,6 @@
             android:layout_marginRight="11dp"
             android:background="@drawable/list_resto"
             android:orientation="horizontal">
-
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="166dp"
@@ -158,16 +184,16 @@
                     android:textColor="@color/Black"
                     android:textSize="12sp">
                 </TextView>
-
                 <RatingBar
-                    android:id="@+id/title_rating1"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="107dp"
-                    android:layout_height="108dp"
-                    android:numStars="5"
                     android:paddingTop="5dp"
+                    android:id="@+id/title_rating2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:progressTint="@color/DefaultOrange"
-                    android:rating="4.5" />
+                    />
             </LinearLayout>
 
 

@@ -20,5 +20,7 @@
     <string name="fare">Favorite Restaurant</string>
     <string name="search">Search your location</string>
     <string name="kliks">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
