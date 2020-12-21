@@ -158,16 +158,16 @@
                     android:textColor="@color/Black"
                     android:textSize="12sp">
                 </TextView>
+
                 <RatingBar
-                    android:paddingTop="5dp"
                     android:id="@+id/title_rating1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4.5"
                     style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="107dp"
+                    android:layout_height="108dp"
+                    android:numStars="5"
+                    android:paddingTop="5dp"
                     android:progressTint="@color/DefaultOrange"
-                    />
+                    android:rating="4.5" />
             </LinearLayout>
 
 
