@@ -19,6 +19,7 @@
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottombar_main" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,130 +76,21 @@
 
 
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/group_12"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="11dp"
-            android:background="@drawable/list_resto"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="166dp"
-                android:layout_height="140dp"
-                android:src="@drawable/ex" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_name"
-                    android:textColor="@color/Black"
-                    android:textSize="16sp">
-                </TextView>
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_type"
-                    android:textColor="@color/Black"
-                    android:textSize="14sp">
-                </TextView>
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_loc"
-                    android:textColor="@color/Black"
-                    android:textSize="12sp">
-                </TextView>
-                <RatingBar
-                    android:paddingTop="5dp"
-                    android:id="@+id/title_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4.5"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:progressTint="@color/DefaultOrange"
-                    />
-            </LinearLayout>
+
+    </LinearLayout>
 
 
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/group_13"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="11dp"
-            android:background="@drawable/list_resto"
-            android:orientation="horizontal">
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="166dp"
-                android:layout_height="140dp"
-                android:src="@drawable/ex" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_name"
-                    android:textColor="@color/Black"
-                    android:textSize="16sp">
-                </TextView>
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_type"
-                    android:textColor="@color/Black"
-                    android:textSize="14sp">
-                </TextView>
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_width="190dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/resto_loc"
-                    android:textColor="@color/Black"
-                    android:textSize="12sp">
-                </TextView>
-                <RatingBar
-                    android:paddingTop="5dp"
-                    android:id="@+id/title_rating2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4.5"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:progressTint="@color/DefaultOrange"
-                    />
-            </LinearLayout>
-
-
-
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

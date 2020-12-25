@@ -1,29 +1,39 @@
 package com.android.delicieuxapp
 
 
-import android.R.id
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.roughike.bottombar.BottomBar
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var recyclerView: RecyclerView
+    lateinit var adapter : MyAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottomBar = findViewById<View>(R.id.bottomBar) as BottomBar
-        bottomBar.setOnTabSelectListener { tabId ->
-            if (tabId == R.id.tab_search) {
-                setContentView(R.layout.activity_main)
-            } else if (tabId == R.id.tab_profile) {
-                setContentView(R.layout.myprofile)
-            }
-        }
+        init()
 
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+    }
+
+    private fun init() {
+        recyclerView = findViewById(R.id.recycler_view)
+
+        var data = ArrayList<Restaurant>()
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya", 4.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya",3.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya", 4.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya",3.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya", 4.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya",3.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya", 4.5))
+        data.add(Restaurant(R.drawable.ex,"Italiano","Fine Dining","Surabaya",3.5))
+        adapter = MyAdapter(data)
     }
 
 }
