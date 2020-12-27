@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
     android:id="@+id/info_resto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/rectangle_1">
     <ImageView
+        android:id="@+id/iv_title"
         android:layout_width="match_parent"
         android:layout_height="234dp"/>
     <!-- Rectangle 1 -->
@@ -24,27 +28,23 @@
 
         <!-- Italiano Ristorante -->
         <TextView
-            android:id="@+id/title_name"
+            android:id="@+id/tv_title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resto_name"
-            android:textAppearance="@style/detailresto_nametitle"
+
             android:layout_gravity="center_horizontal"/>
         <TextView
-            android:id="@+id/title_type"
+            android:id="@+id/tv_title_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resto_type"
-            android:textAppearance="@style/detailresto_info"
             android:layout_gravity="center_horizontal"
             />
 
         <TextView
-            android:id="@+id/title_loc"
+            android:id="@+id/tv_title_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resto_loc"
-            android:textAppearance="@style/detailresto_info"
+
             android:layout_gravity="center_horizontal"
             />
         <LinearLayout
@@ -53,7 +53,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
         <RatingBar
-            android:id="@+id/title_rating"
+            android:id="@+id/rb_title_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
@@ -61,6 +61,7 @@
             style="?android:attr/ratingBarStyleSmall"
             android:progressTint="@color/DefaultOrange"/>
         <TextView
+            android:id="@+id/tv_title_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4.5"
@@ -70,6 +71,7 @@
     </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/ll_reviews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -84,98 +86,16 @@
             android:layout_gravity="center_horizontal"
             android:textStyle="bold"
             android:textSize="15sp"/>
-        <LinearLayout
-            android:id="@+id/review_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="7dp">
-            <TextView
-                android:id="@+id/review_name_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="John Doe"
-                style="@style/detailresto_info"
-              />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RatingBar
-                    android:id="@+id/review_rate_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4.5"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:progressTint="@color/DefaultOrange"/>
-                <TextView
-                    android:id="@+id/review_date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12-12-2020"
-                    android:textSize="13sp"
-                    android:textColor="@color/Black"
-                    />
-            </LinearLayout>
+<!--<androidx.recyclerview.widget.RecyclerView-->
+<!--    android:id="@+id/rv_review"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--    android:orientation="vertical">-->
 
+<!--</androidx.recyclerview.widget.RecyclerView>-->
 
-                <TextView
-                    android:id="@+id/review_text_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="A combination of good food, good service.
-The place was very clean and the ambience was nice. I loved
-the live music, it was awesome! Will come back next time. "
-                    style="@style/detailresto_info"
-                    />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/review_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="7dp">
-            <TextView
-                android:id="@+id/review_name_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="John Doe"
-                style="@style/detailresto_info"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RatingBar
-                    android:id="@+id/review_rate_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4.5"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:progressTint="@color/DefaultOrange"/>
-                <TextView
-                    android:id="@+id/review_date_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12-12-2020"
-                    android:textSize="13sp"
-                    android:textColor="@color/Black"
-                    />
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/review_text_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A combination of good food, good service.
-The place was very clean and the ambience was nice. I loved
-the live music, it was awesome! Will come back next time. "
-                style="@style/detailresto_info"
-                />
-        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
+</ScrollView>

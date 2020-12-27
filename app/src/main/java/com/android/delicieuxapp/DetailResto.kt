@@ -1,9 +1,9 @@
 package com.android.delicieuxapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.delicieuxapp.API.Api
@@ -14,19 +14,36 @@ import kotlinx.android.synthetic.main.detail_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Url
+import java.lang.Exception
 
 
 class DetailResto : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+            headerapicall()
             apicall()
-            setContentView(R.layout.detail_resto);
-
+            setContentView(R.layout.detail_resto)
+            btn_gmaps.setOnClickListener {
+                val url = it.getTag()
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url as String?)
+                startActivity(i)
+            }
+            btn_call.setOnClickListener{
+                try {
+                    val notelp = it.getTag().toString().trim()
+                    val i = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Uri.encode(notelp)))
+                    startActivity(i)
+                } catch (e: Exception){
+                    e.printStackTrace()
+                }
+            }
         }
 
         //    override fun onStart() {
 //        super.onStart()
-        fun apicall() {
+    fun headerapicall(){
             Api.service<RestaurantInfoService>()
                 .getResInfo(1704205)
                 .enqueue(object : Callback<RestoDetailResponse> {
@@ -34,7 +51,7 @@ class DetailResto : AppCompatActivity() {
                         call: Call<RestoDetailResponse>,
                         response: Response<RestoDetailResponse>
                     ) {
-                        var test=response.body()
+
                         tv_title_name.text = response.body()?.ResName
                         var location= response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
                         tv_title_loc.text= location
@@ -47,13 +64,36 @@ class DetailResto : AppCompatActivity() {
                             rating="No Rating"
                         }
                         tv_title_rating.text=rating
+                        Picasso.get().load(response.body()?.ResPhotoUrl).fit().centerCrop().into(iv_title)
+                    }
+
+                    override fun onFailure(call: Call<RestoDetailResponse>, t: Throwable) {
+                    }
+                })
+
+        }
+
+        fun apicall() {
+            Api.service<RestaurantInfoService>()
+                .getResInfo(1704205)
+                .enqueue(object : Callback<RestoDetailResponse> {
+                    override fun onResponse(
+                        call: Call<RestoDetailResponse>,
+                        response: Response<RestoDetailResponse>
+                    ) {
+
                         tv_content_currency.text=response.body()?.ResCurrency
                         tv_content_cost.text=response.body()?.ResPrice
                         //payment = details
                         tv_content_hour.text= response.body()?.ResTime?.replace(", ","\n")
-                        tv_content_phone.text=response.body()?.ResPhone
+                        val notelp=response.body()?.ResPhone
+                        tv_content_phone.text=notelp
+                        btn_call.tag=notelp
                         tv_content_address.text=response.body()?.ResLocData?.ResAddress
-                        Picasso.get().load(response.body()?.ResPhotoUrl).fit().centerCrop().into(iv_title)
+                        val loc_lat=response.body()?.ResLocData?.ResLat
+                        val loc_long=response.body()?.ResLocData?.ResLong
+                        val maps_url= "https://www.google.com/maps/dir/?api=1&destination=$loc_lat,$loc_long"
+                        btn_gmaps.tag=maps_url
                         val details = response.body()?.ResDetails
                         val payment: MutableList<String> = mutableListOf()
 
@@ -116,29 +156,32 @@ class DetailResto : AppCompatActivity() {
                             infoDetail+="Table Reservation Required"
                         }
 
-                        var relativelayout: RelativeLayout =findViewById(R.id.content_details_area)
+                        var flowLayout: com.nex3z.flowlayout.FlowLayout =findViewById(R.id.content_details_area)
                         infoDetail.forEach {
                             val view: View = layoutInflater.inflate(R.layout.detail_box_green, null)
                             val tvDetail: TextView = view.findViewById(R.id.tv_infogreen)
                             tvDetail.setText(it)
-                            relativelayout.addView(view)
+                            flowLayout.addView(view)
                         }
 
                         if("No Alcohol Available" in details){
                             val view: View = layoutInflater.inflate(R.layout.detail_box_red, null)
                             val tvDetail: TextView = view.findViewById(R.id.tv_infored)
                             tvDetail.setText("No Alcohol Available")
-                            relativelayout.addView(view)
+                            flowLayout.addView(view)
                         }
+
 //Buat nanti yg highlight
 //                    response.body()?.ResLocData?.mapIndexed { index, shipmentSummary ->
 //                        tv_title_loc.text =
 //                        tv1.text = index.toString()
 //                    }
+
                     }
 
                     override fun onFailure(call: Call<RestoDetailResponse>, t: Throwable) {
                     }
                 })
+
         }
-    }
+}

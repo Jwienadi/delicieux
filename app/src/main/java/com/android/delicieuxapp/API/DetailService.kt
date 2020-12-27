@@ -12,3 +12,10 @@ interface RestaurantInfoService {
         @Query("res_id") res_id: Int
     ): Call<RestoDetailResponse>
 }
+
+interface RestaurantReview {
+    @GET("reviews")
+    fun getResId(
+        @Query("res_id") res_id: Int
+    ): Call<ReviewsResponse>
+}

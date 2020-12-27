@@ -31,10 +31,45 @@ class RestoDetailResponse {
     var ResRating: UserRating? = null
 }
 
-
+class LocData {
+    @SerializedName("address")
+    var ResAddress: String? = ""
+    @SerializedName("latitude")
+    var ResLat: String? = ""
+    @SerializedName("longitude")
+    var ResLong: String? = ""
+    @SerializedName("locality")
+    var ResLocname: String? = ""
+    @SerializedName("city")
+    var ResCity: String? = ""
+}
 //
 class UserRating {
     @SerializedName("aggregate_rating")
     var ResAngkaRating: String? = ""
 }
-
+//---------------------------------------------------------------------------
+class ReviewsResponse {
+    @SerializedName("user_reviews")
+    var reviewhead: List<Review>? = null
+}
+class Review {
+    @SerializedName("review")
+    var reviewhead2: Reviewed? = null
+}
+class Reviewed{
+    @SerializedName("rating")
+    var ratingnumber: String? = ""
+    @SerializedName("timestamp")
+    var ratingtime: String? = ""
+    @SerializedName("rating_text")
+    var reviewtitle: String? = ""
+    @SerializedName("review_text")
+    var reviewfull: String? = ""
+    @SerializedName("user")
+    var ratinguser: user? = null
+}
+class user{
+    @SerializedName("name")
+    var ratingname: String? = ""
+}
