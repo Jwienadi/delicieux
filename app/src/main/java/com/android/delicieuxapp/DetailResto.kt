@@ -20,6 +20,7 @@ import java.lang.Exception
 
 class DetailResto : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
+
             super.onCreate(savedInstanceState)
             headerapicall()
             apicall()

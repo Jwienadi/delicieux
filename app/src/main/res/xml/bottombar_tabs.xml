@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        id="@+id/tab_About"
+        id="@+id/tab_about"
         icon="@drawable/ic_baseline_info_24"
         title="About"
         barColorWhenSelected="#F79928" />
