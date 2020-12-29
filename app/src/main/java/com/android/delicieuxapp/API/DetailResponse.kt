@@ -7,7 +7,7 @@ import java.lang.reflect.Array
 //di open classnya kalo ada perlu inheritance
 class RestoDetailResponse {
     @SerializedName("name")
-    var ResName: String? = " a"
+    var ResName: String? = "a"
     @SerializedName("location")
 //    //dis List<> is trouble all the time, try T
     var ResLocData: LocData? = null
