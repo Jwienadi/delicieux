@@ -5,7 +5,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 android:width="775dp"
 android:height="441dp"
     >
-    <corners android:radius="6dp"/>
+    <corners android:radius="10dp"/>
 <solid android:color="#FFFFFF"/>
     <stroke android:width ="1dp"
         android:color = "@color/grey"/>

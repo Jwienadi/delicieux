@@ -160,19 +160,19 @@ class FragmentDetailResto : Fragment() {
                         infoDetail+="Table Reservation Required"
                     }
 
-                    var flowLayout: com.nex3z.flowlayout.FlowLayout =view.findViewById(R.id.content_details_area)
+                   // var flowLayout: com.nex3z.flowlayout.FlowLayout =view.findViewById(R.id.content_details_area)
                     infoDetail.forEach {
                         val view: View = layoutInflater.inflate(R.layout.detail_box_green, null)
                         val tvDetail: TextView = view.findViewById(R.id.tv_infogreen)
                         tvDetail.setText(it)
-                        flowLayout.addView(view)
+                    //    flowLayout.addView(view)
                     }
 
                     if("No Alcohol Available" in details){
                         val view: View = layoutInflater.inflate(R.layout.detail_box_red, null)
                         val tvDetail: TextView = view.findViewById(R.id.tv_infored)
                         tvDetail.setText("No Alcohol Available")
-                        flowLayout.addView(view)
+                    //    flowLayout.addView(view)
                     }
 
 //Buat nanti yg highlight
