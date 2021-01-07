@@ -7,9 +7,10 @@ import okhttp3.Response
 class NetworkInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val interceptedRequest: Request = chain.request()
-
+        //2b0724f8aec25e2946034f3e7dcb4920 apiammar
+        //0d9669f4a2ef9bab2589dda088256b93 apijessica
         val request: Request = interceptedRequest.newBuilder()
-            .header(KEY_AUTHORIZATION, "0d9669f4a2ef9bab2589dda088256b93")
+            .header(KEY_AUTHORIZATION, "2b0724f8aec25e2946034f3e7dcb4920")
             .method(interceptedRequest.method, interceptedRequest.body)
             .build()
 
