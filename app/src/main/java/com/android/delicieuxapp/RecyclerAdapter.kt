@@ -1,6 +1,5 @@
 package com.android.delicieuxapp
 
-import android.media.Rating
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(private var title: List<String>, private var jenis: List<String>,
                       private var locations: List<String>,
