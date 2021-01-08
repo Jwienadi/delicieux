@@ -1,6 +1,5 @@
 package com.android.testdelicieux.API
 
-import com.android.delicieuxapp.MainModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -12,10 +11,6 @@ interface RestaurantInfoService {
         fun getResInfo(
         @Query("res_id") res_id: Int
     ): Call<RestoDetailResponse>
-}
-interface Restaurant {
-    @GET("restaurant")
-    fun getRes(): Call<MainModel>
 }
 
 

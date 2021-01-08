@@ -1,6 +1,5 @@
 package com.android.delicieuxapp.API
 
-import com.android.testdelicieux.API.Restaurant
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,13 +18,6 @@ object RetrofitClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val instance : Restaurant by lazy {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        retrofit.create(Restaurant::class.java)
-    }
 
 
 

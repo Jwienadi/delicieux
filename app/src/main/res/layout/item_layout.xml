@@ -15,6 +15,7 @@
         android:id="@+id/img_view"
         android:layout_width="166dp"
         android:layout_height="140dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground" />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -51,15 +52,31 @@
             android:textColor="@color/Black"
             android:textSize="12sp">
         </TextView>
-        <RatingBar
-            android:paddingTop="5dp"
-            android:id="@+id/tv_rating"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            android:rating="4.5"
-            style="?android:attr/ratingBarStyleSmall"
-            android:progressTint="@color/DefaultOrange"
-            />
+            android:orientation="horizontal">
+            <RatingBar
+                android:paddingTop="5dp"
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="@color/DefaultOrange"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_rating"
+                android:paddingTop="4dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="@color/Black"
+                android:text="4.3">
+
+            </TextView>
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

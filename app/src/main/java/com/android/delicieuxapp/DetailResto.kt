@@ -51,6 +51,7 @@ class DetailResto : AppCompatActivity() {
                     override fun onResponse(
                         call: Call<RestoDetailResponse>,
                         response: Response<RestoDetailResponse>
+
                     ) {
 
                         tv_title_name.text = response.body()?.ResName

@@ -8,12 +8,18 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import com.android.delicieuxapp.API.Api
 import com.android.delicieuxapp.API.RetrofitClient
-import com.android.testdelicieux.API.Restaurant
+import com.android.delicieuxapp.model.RestaurantX
+import com.android.delicieuxapp.model.Resto
 import com.android.testdelicieux.API.RestaurantInfoService
 import com.android.testdelicieux.API.RestoDetailResponse
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.ParsedRequestListener
 import com.roughike.bottombar.BottomBar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,56 +31,42 @@ import retrofit2.Response
 
 
 class MainActivity() : AppCompatActivity() {
-    private val TAG: String = "MainActivity"
-    lateinit var resAdapter: ResAdapter
+    private val dataList: MutableList<RestaurantX> = mutableListOf()
+    private lateinit var myAdapter: MyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
 
-    override fun onStart() {
-        super.onStart()
-        setupRecyclerView()
-        getDatafromApi()
-    }
+        // setup myadapter
+        myAdapter = MyAdapter(dataList)
 
-    private fun setupRecyclerView(){
-        resAdapter = ResAdapter(arrayListOf())
-        recycler_view.apply {
-            layoutManager = LinearLayoutManager(applicationContext)
-            adapter = resAdapter
-        }
-    }
+        // setup recycler_view
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
+        recycler_view.adapter = myAdapter
 
-    private fun getDatafromApi(){
-        Api.service<Restaurant>()
-            .getRes()
-            .enqueue(object : Callback<MainModel> {
-                override fun onFailure(call: Call<MainModel>, t: Throwable) {
-                    printLog("onFailure: $t")
-                }
+        //setup android networking
+        AndroidNetworking.initialize(this)
 
-                override fun onResponse(call: Call<MainModel>, response: Response<MainModel>) {
-                    if(response.isSuccessful){
-                        showData(response.body()!!)
+        AndroidNetworking.get("https://developers.zomato.com/documentation#!/restaurant/search")
+            .addHeaders("token", "2b0724f8aec25e2946034f3e7dcb4920")
+            .build()
+            .getAsObject(Resto::class.java, object: ParsedRequestListener<Resto>{
+                override fun onResponse(response: Resto?) {
+
+                    if (response != null) {
+                        dataList.addAll(response.restaurants)
                     }
+                    myAdapter.notifyDataSetChanged()
                 }
+
+                override fun onError(anError: ANError?) {
+                }
+
             })
     }
-
-    private fun printLog(message: String){
-        Log.d(TAG, message)
-    }
-
-    private fun showData(data:MainModel){
-        val results = data.result
-        for (result in results) {
-            printLog("${result.title}")
-        }
-    }
 }
-
 
 
 
