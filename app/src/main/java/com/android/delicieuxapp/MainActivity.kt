@@ -2,7 +2,10 @@ package com.android.delicieuxapp
 
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,9 +30,9 @@ import retrofit2.Response
 
 
 class MainActivity() : AppCompatActivity() {
-    private val articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
+    private var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
-    val search = findViewById<SearchView>(R.id.sb_search)
+    private lateinit var editsearch :EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +40,23 @@ class MainActivity() : AppCompatActivity() {
 
         // setup adapter
         myAdapter = MyAdapter(articles)
+
+        editsearch = findViewById(R.id.sb_search)
         //query search
+            editsearch.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                filterList(s.toString())
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
 
 
+        })
         // setup recycler_view
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
@@ -63,6 +80,18 @@ class MainActivity() : AppCompatActivity() {
 
 
 
+    }
+
+    private fun filterList(filterItem: String) {
+        var tempList:MutableList<com.android.delicieuxapp.model.Restaurant> = ArrayList()
+
+        for (d in articles){
+            if(filterItem in d.restaurant.name.toString()){
+
+                tempList.add(d)
+            }
+        }
+        myAdapter.updateList(tempList)
     }
 }
 

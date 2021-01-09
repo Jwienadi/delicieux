@@ -50,18 +50,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <SearchView
+                <EditText
                     android:id="@+id/sb_search"
                     android:layout_marginTop="20dp"
                     android:paddingLeft="12dp"
                     android:layout_marginLeft="11dp"
                     android:layout_marginRight="11dp"
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="35dp"
                     android:hint="@string/search_bar"
                     android:textColor="@color/grey"
                     android:background="@drawable/background_form">
-                </SearchView>
+                </EditText>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_search_24">
+
+                </ImageView>
 
             </LinearLayout>
 

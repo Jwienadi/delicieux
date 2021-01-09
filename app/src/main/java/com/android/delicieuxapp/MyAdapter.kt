@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.android.delicieuxapp.model.Restaurant
-import com.android.delicieuxapp.model.RestaurantX
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class MyAdapter (private val articles:MutableList<Restaurant>) : RecyclerView.Adapter<MyHolder>() {
+class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Adapter<MyHolder>() {
 
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -57,6 +56,11 @@ class MyAdapter (private val articles:MutableList<Restaurant>) : RecyclerView.Ad
 
     override fun getItemCount(): Int {
         return articles.size
+    }
+
+    fun updateList(list:MutableList<Restaurant>){
+        articles = list
+        notifyDataSetChanged()
     }
 }
 
