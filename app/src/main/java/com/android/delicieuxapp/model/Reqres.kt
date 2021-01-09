@@ -3,9 +3,9 @@ package com.android.delicieuxapp.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Resto(
+data class Reqres(
     @SerializedName("restaurants")
-    val restaurants: List<RestaurantX>,
+    val restaurants: List<Restaurant>,
     @SerializedName("results_found")
     val resultsFound: Int,
     @SerializedName("results_shown")

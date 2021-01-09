@@ -1,16 +1,12 @@
 package com.android.delicieuxapp
 
-import android.media.Rating
 import android.os.Bundle
 import android.view.View
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.delicieuxapp.API.Api
-import com.android.testdelicieux.API.*
+import com.android.delicieuxapp.API.*
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.detail_resto.*
 import kotlinx.android.synthetic.main.detail_resto.iv_title
 import kotlinx.android.synthetic.main.detail_resto.rb_title_star
 import kotlinx.android.synthetic.main.detail_resto.tv_title_loc

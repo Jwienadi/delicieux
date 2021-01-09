@@ -1,7 +1,6 @@
-package com.android.testdelicieux.API
+package com.android.delicieuxapp.API
 
 import com.google.gson.annotations.SerializedName
-import java.lang.reflect.Array
 
 //buat ngakses value di api, dideclare variabelnya
 //di open classnya kalo ada perlu inheritance

@@ -1,57 +1,51 @@
 package com.android.delicieuxapp
 
 import android.content.Context
-import android.provider.ContactsContract
-import android.view.ContextMenu
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.android.delicieuxapp.model.Restaurant
 import com.android.delicieuxapp.model.RestaurantX
-import com.android.testdelicieux.API.RestoDetailResponse
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.detail_resto.*
 import kotlinx.android.synthetic.main.item_layout.view.*
-import kotlinx.android.synthetic.main.item_layout.view.txt_title
-import kotlinx.android.synthetic.main.item_layout.view.txt_type
-import kotlinx.android.synthetic.main.recycler_view_template.view.*
 
-class MyAdapter (private val dataList: MutableList<RestaurantX>) : RecyclerView.Adapter<MyHolder>() {
+class MyAdapter (private val articles:MutableList<Restaurant>) : RecyclerView.Adapter<MyHolder>() {
+
     private lateinit var context: Context
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-      context = parent.context
-        return MyHolder(LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false))
+        context = parent.context
+        val view = LayoutInflater.from(context).inflate(R.layout.item_layout,parent,false)
+        return MyHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val data = dataList[position]
+        val data = articles[position]
 
         val title = holder.itemView.txt_title
         val type = holder.itemView.txt_type
         val location = holder.itemView.txt_loc
+        val rating = holder.itemView.tv_rating
+       val rating2 = holder.itemView.tx_rating
         val img = holder.itemView.img_view
-        val rating = holder.itemView.tx_rating
 
-        val name = "${data.name}"
+
+        val name = data.restaurant.name
         title.text = name
 
-        val tipe = "${data.cuisines}"
-        type.text = tipe
+        val tape = data.restaurant.cuisines
+        type.text = tape
 
-        val lokasi = "${data.location}"
-        location.text = lokasi
+       val loki = data.restaurant.location.address
+       location.text = loki
 
-        val nilai = "${data.userRating}"
-        rating.text = nilai
+        val nalani = data.restaurant.userRating.aggregateRating
+         rating.rating = nalani.toFloat()
 
-        Picasso.get()
-            .load(data.photosUrl)
-            .into(img)
+        val rabat = data.restaurant.userRating.aggregateRating
+        rating2.text = rabat
+
+        Picasso.get().load(data.restaurant.photosUrl).into(img)
 
         holder.itemView.setOnClickListener {
             Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
@@ -59,10 +53,10 @@ class MyAdapter (private val dataList: MutableList<RestaurantX>) : RecyclerView.
         }
 
 
-
-
     }
 
-    override fun getItemCount(): Int = dataList.size
+    override fun getItemCount(): Int {
+        return articles.size
+    }
 }
 

@@ -62,6 +62,10 @@ data class RestaurantX(
     val offers: List<Any>,
     @SerializedName("opentable_support")
     val opentableSupport: Int,
+    @SerializedName("order_deeplink")
+    val orderDeeplink: String,
+    @SerializedName("order_url")
+    val orderUrl: String,
     @SerializedName("phone_numbers")
     val phoneNumbers: String,
     @SerializedName("photo_count")

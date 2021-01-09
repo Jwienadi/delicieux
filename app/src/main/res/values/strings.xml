@@ -8,8 +8,8 @@
     <string name="payment">Cash, Credit Card, Debit Card</string>
     <string name="loc">Your Location     v</string>
     <string name="name_loc">Jalan Gubeng, Surabaya</string>
-    <string name="search_bar">search your favorite restaurant</string>
-    <string name="comb_kate">Newest first  v</string>
+    <string name="search_bar">Search Restaurant..</string>
+    <string name="comb_kate">Newest first </string>
     <string name="my">My Profile</string>
     <string name="email">E-mail address</string>
     <string name="fname">First name</string>

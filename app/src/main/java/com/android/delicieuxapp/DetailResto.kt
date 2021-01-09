@@ -7,14 +7,13 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.delicieuxapp.API.Api
-import com.android.testdelicieux.API.RestaurantInfoService
-import com.android.testdelicieux.API.RestoDetailResponse
+import com.android.delicieuxapp.API.RestaurantInfoService
+import com.android.delicieuxapp.API.RestoDetailResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Url
 import java.lang.Exception
 
 

@@ -2,25 +2,21 @@ package com.android.delicieuxapp
 
 
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
-import android.view.View
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import com.android.delicieuxapp.API.Api
-import com.android.delicieuxapp.API.RetrofitClient
 import com.android.delicieuxapp.model.RestaurantX
-import com.android.delicieuxapp.model.Resto
-import com.android.testdelicieux.API.RestaurantInfoService
-import com.android.testdelicieux.API.RestoDetailResponse
+import com.android.delicieuxapp.API.Restaurant
+import com.android.delicieuxapp.API.RestoDetailResponse
+import com.android.delicieuxapp.model.Reqres
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
-import com.roughike.bottombar.BottomBar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.detail_resto.*
@@ -31,15 +27,18 @@ import retrofit2.Response
 
 
 class MainActivity() : AppCompatActivity() {
-    private val dataList: MutableList<RestaurantX> = mutableListOf()
+    private val articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
+    val search = findViewById<SearchView>(R.id.sb_search)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // setup myadapter
-        myAdapter = MyAdapter(dataList)
+        // setup adapter
+        myAdapter = MyAdapter(articles)
+        //query search
+
 
         // setup recycler_view
         recycler_view.layoutManager = LinearLayoutManager(this)
@@ -49,15 +48,11 @@ class MainActivity() : AppCompatActivity() {
         //setup android networking
         AndroidNetworking.initialize(this)
 
-        AndroidNetworking.get("https://developers.zomato.com/documentation#!/restaurant/search")
-            .addHeaders("token", "2b0724f8aec25e2946034f3e7dcb4920")
+        AndroidNetworking.get("https://developers.zomato.com/api/v2.1/search?apikey=0d9669f4a2ef9bab2589dda088256b93")
             .build()
-            .getAsObject(Resto::class.java, object: ParsedRequestListener<Resto>{
-                override fun onResponse(response: Resto?) {
-
-                    if (response != null) {
-                        dataList.addAll(response.restaurants)
-                    }
+            .getAsObject(Reqres::class.java, object: ParsedRequestListener<Reqres> {
+                override fun onResponse(response: Reqres) {
+                    articles.addAll(response.restaurants)
                     myAdapter.notifyDataSetChanged()
                 }
 
@@ -65,6 +60,9 @@ class MainActivity() : AppCompatActivity() {
                 }
 
             })
+
+
+
     }
 }
 

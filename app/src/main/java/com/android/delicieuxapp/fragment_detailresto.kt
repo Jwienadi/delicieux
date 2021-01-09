@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.Api
-import com.android.testdelicieux.API.RestaurantInfoService
-import com.android.testdelicieux.API.RestoDetailResponse
+import com.android.delicieuxapp.API.RestaurantInfoService
+import com.android.delicieuxapp.API.RestoDetailResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_resto.*
 import kotlinx.android.synthetic.main.detail_resto.view.*

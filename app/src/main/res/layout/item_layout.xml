@@ -14,9 +14,9 @@
     <ImageView
         android:id="@+id/img_view"
         android:layout_width="166dp"
-        android:layout_height="140dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:layout_height="130dp"
+        android:layout_weight="1.5"
+        android:scaleType="centerCrop" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_marginLeft="100dp"
@@ -69,9 +69,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:textSize="13dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/Black"
+                android:text="|">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/tx_rating"
                 android:paddingTop="4dp"
-                android:layout_marginLeft="2dp"
+                android:textSize="13dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/Black"
                 android:text="4.3">
 

@@ -1,8 +1,6 @@
 package com.android.delicieuxapp
 
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,24 +9,21 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.Api
-import com.android.testdelicieux.API.RestaurantInfoService
-import com.android.testdelicieux.API.RestaurantReview
-import com.android.testdelicieux.API.RestoDetailResponse
-import com.android.testdelicieux.API.ReviewsResponse
+import com.android.delicieuxapp.API.RestaurantInfoService
+import com.android.delicieuxapp.API.RestaurantReview
+import com.android.delicieuxapp.API.RestoDetailResponse
+import com.android.delicieuxapp.API.ReviewsResponse
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.detail_resto.*
 import kotlinx.android.synthetic.main.detail_resto.iv_title
 import kotlinx.android.synthetic.main.detail_resto.rb_title_star
 import kotlinx.android.synthetic.main.detail_resto.tv_title_loc
 import kotlinx.android.synthetic.main.detail_resto.tv_title_name
 import kotlinx.android.synthetic.main.detail_resto.tv_title_rating
 import kotlinx.android.synthetic.main.detail_resto.tv_title_type
-import kotlinx.android.synthetic.main.detail_resto.view.*
 import kotlinx.android.synthetic.main.review_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 
 class FragmentReviewResto : Fragment() {
