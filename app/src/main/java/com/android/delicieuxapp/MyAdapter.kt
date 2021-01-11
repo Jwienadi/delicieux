@@ -44,7 +44,15 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
         val rabat = data.restaurant.userRating.aggregateRating
         rating2.text = rabat
 
-        Picasso.get().load(data.restaurant.photosUrl).into(img)
+
+        val imago = data.restaurant.featuredImage
+
+        if(imago == ""){
+            Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg"
+            ).into(img)
+        } else {
+            Picasso.get().load(data.restaurant.featuredImage).into(img)
+        }
 
         holder.itemView.setOnClickListener {
             Toast.makeText(context, name, Toast.LENGTH_SHORT).show()

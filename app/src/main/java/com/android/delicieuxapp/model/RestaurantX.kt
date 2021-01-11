@@ -29,7 +29,7 @@ data class RestaurantX(
     @SerializedName("events_url")
     val eventsUrl: String,
     @SerializedName("featured_image")
-    val featuredImage: String,
+    val featuredImage: String? = "",
     @SerializedName("has_online_delivery")
     val hasOnlineDelivery: Int,
     @SerializedName("has_table_booking")
