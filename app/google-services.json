@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137989239894",
+    "project_id": "delicieuxapp",
+    "storage_bucket": "delicieuxapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137989239894:android:de2e2bcee40fe40d4677f7",
+        "android_client_info": {
+          "package_name": "com.android.delicieuxapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137989239894-tm14nm3flh1nhkn1dgslpp46v9kvvsid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHwi8IMM_O_JBUKLYFXRfCAhmG1Qb4-k4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137989239894-tm14nm3flh1nhkn1dgslpp46v9kvvsid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
