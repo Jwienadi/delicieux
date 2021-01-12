@@ -68,7 +68,14 @@ class FragmentDetailResto : Fragment() {
                         rating="No Rating"
                     }
                     tv_title_rating.text=rating
-                    Picasso.get().load(response.body()?.ResPhotoUrl).fit().centerCrop().into(iv_title)
+                    val restoimg = response.body()?.ResPhotoUrl
+
+                    if (restoimg == "") {
+                        Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg").fit().centerCrop().into(iv_title)
+                    } else {
+                        Picasso.get().load(restoimg).fit().centerCrop().into(iv_title)
+                    }
+
                 }
 
                 override fun onFailure(call: Call<RestoDetailResponse>, t: Throwable) {
