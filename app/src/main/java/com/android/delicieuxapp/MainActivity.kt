@@ -29,7 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity() : AppCompatActivity() {
+class MainActivity() : AppCompatActivity(){
     private var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
     private lateinit var editsearch :EditText
@@ -93,6 +93,7 @@ class MainActivity() : AppCompatActivity() {
         }
         myAdapter.updateList(tempList)
     }
+
 }
 
 

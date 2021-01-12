@@ -1,7 +1,5 @@
 package com.android.delicieuxapp.API
 
-import com.android.delicieuxapp.API.RestoDetailResponse
-import com.android.delicieuxapp.API.ReviewsResponse
 import com.android.delicieuxapp.model.Restaurant
 import retrofit2.Call
 import retrofit2.http.GET
