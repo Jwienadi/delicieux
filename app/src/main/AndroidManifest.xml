@@ -13,18 +13,26 @@
         android:roundIcon="@drawable/deliciux"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".login"></activity>
-        <activity android:name=".MainActivity"/>
 
-            <activity android:name=".DetailResto">
-            <!-- <activity android:name=".ReviewResto"> -->
-            <!-- <activity android:name=".RestoMain"> -->
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+            <activity android:name=".DetailResto">
+            <!-- <activity android:name=".ReviewResto"> -->
+            <!-- <activity android:name=".RestoMain"> -->
+
+        </activity>
+
+        <activity android:name=".login">
+
+
+        </activity>
+
     </application>
 
 </manifest>

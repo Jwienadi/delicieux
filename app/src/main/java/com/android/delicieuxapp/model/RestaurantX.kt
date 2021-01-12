@@ -37,7 +37,7 @@ data class RestaurantX(
     @SerializedName("highlights")
     val highlights: List<String>,
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("include_bogo_offers")
     val includeBogoOffers: Boolean,
     @SerializedName("is_book_form_web_view")

@@ -1,6 +1,7 @@
 package com.android.delicieuxapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -28,7 +29,7 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
        val rating2 = holder.itemView.tx_rating
         val img = holder.itemView.img_view
 
-
+        val kelci = data.restaurant.id
         val name = data.restaurant.name
         title.text = name
 
@@ -39,7 +40,13 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
        location.text = loki
 
         val nalani = data.restaurant.userRating.aggregateRating
-         rating.rating = nalani.toFloat()
+
+        if (nalani == ""){
+            rating.rating = "No Rating".toFloat()
+        } else {
+            rating.rating = nalani.toFloat()
+
+        }
 
         val rabat = data.restaurant.userRating.aggregateRating
         rating2.text = rabat
@@ -54,17 +61,22 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
             Picasso.get().load(data.restaurant.featuredImage).into(img)
         }
 
+
+
         holder.itemView.setOnClickListener {
             Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
+            var i = Intent(context, DetailResto::class.java)
+            i.putExtra("id", kelci)
+            context.startActivity(i)
 
         }
-
 
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
+
 
     fun updateList(list:MutableList<Restaurant>){
         articles = list
