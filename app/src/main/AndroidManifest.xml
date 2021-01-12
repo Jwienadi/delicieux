@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".login"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
 
-            <!-- <activity android:name=".DetailResto"> -->
+            <activity android:name=".DetailResto">
             <!-- <activity android:name=".ReviewResto"> -->
             <!-- <activity android:name=".RestoMain"> -->
             <intent-filter>
