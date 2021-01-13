@@ -69,8 +69,8 @@ class RestoMain : AppCompatActivity() {
 //            }
 //            true
 //        }
-//        val back = findViewById<View>(R.id.backToMain) as ImageButton
-//        back.setOnClickListener { onBackPressed() }
+        val back = findViewById<View>(R.id.backToMain) as ImageButton
+        back.setOnClickListener { onBackPressed() }
     }
 
     private fun setCurrentFragment(fragment: Fragment)=
