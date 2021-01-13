@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.Api
@@ -23,6 +24,8 @@ import retrofit2.Response
 class FragmentDetailResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+//        getActivity()?.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE)
+        getActivity()?.getActionBar()?.hide()
         val view = inflater.inflate(R.layout.detail_resto, container, false)
 
         //ambil data dr activity ke fragment
@@ -61,7 +64,13 @@ class FragmentDetailResto : Fragment() {
                     tv_title_name.text = response.body()?.ResName
                     var location= response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
                     tv_title_loc.text= location
-                    var titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
+                    var titleJenis:String
+                    if (response.body()?.ResJenis?.isEmpty()!!){
+                    titleJenis = response.body()?.ResCuisines!!
+                    } else {
+                    titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
+                    }
+
                     tv_title_type.text=titleJenis
 
                     var rating = response.body()?.ResRating?.ResAngkaRating

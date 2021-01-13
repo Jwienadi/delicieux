@@ -29,7 +29,8 @@ import retrofit2.Response
 class FragmentReviewResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.review_resto, container, false)
+
+        val view = inflater.inflate(R.layout.review_resto, container,false)
 
         val args = arguments
         val id = args!!.getInt("ID", 0)
@@ -52,7 +53,12 @@ class FragmentReviewResto : Fragment() {
                     tv_title_name.text = response.body()?.ResName
                     var location= response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
                     tv_title_loc.text= location
-                    var titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
+                    var titleJenis:String
+                    if (response.body()?.ResJenis?.isEmpty()!!){
+                        titleJenis = response.body()?.ResCuisines!!
+                    } else {
+                        titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
+                    }
                     tv_title_type.text=titleJenis
 
                     var rating = response.body()?.ResRating?.ResAngkaRating
@@ -61,7 +67,12 @@ class FragmentReviewResto : Fragment() {
                         rating="No Rating"
                     }
                     tv_title_rating.text=rating
-                    Picasso.get().load(response.body()?.ResPhotoUrl).fit().centerCrop().into(iv_title)
+                    val restoimg = response.body()?.ResPhotoUrl
+                    if (restoimg == "") {
+                        Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg").fit().centerCrop().into(iv_title)
+                    } else {
+                        Picasso.get().load(restoimg).fit().centerCrop().into(iv_title)
+                    }
                 }
 
                 override fun onFailure(call: Call<RestoDetailResponse>, t: Throwable) {
