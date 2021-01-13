@@ -26,12 +26,26 @@
         android:orientation="vertical"
         android:paddingTop="10dp">
 
+        <Button
+            android:id="@+id/bt_sign"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center"
+            app:cornerRadius="15dp"
+            android:src="@drawable/sign"
+            android:text="@string/sign_in"
+            android:textColor="@color/White"
+            tools:ignore="RtlHardcoded">
+
+        </Button>
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_marginBottom="30dp"
+            android:layout_width="80dp"
+            android:layout_height="57dp"
             android:layout_gravity="center"
-            android:src="@drawable/deliciux"/>
+            android:src="@drawable/ic_logo_orange"/>
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,6 +80,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="6dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/ic_baseline_search_24">
 
@@ -73,16 +88,7 @@
 
             </LinearLayout>
 
-            <Button
-                android:layout_marginTop="20dp"
-                android:layout_width="120dp"
-                android:layout_height="35dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="@string/comb_kate"
-                android:background="@drawable/button_bar"
-                android:textColor="@color/Black"
-                android:textSize="13dp"/>
+
 
 
         </LinearLayout>
@@ -94,7 +100,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="380dp"
+                android:layout_height="match_parent"
                 tools:listitem="@layout/item_layout" />
 
 

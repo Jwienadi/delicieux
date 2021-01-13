@@ -1,6 +1,7 @@
 package com.android.delicieuxapp
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -32,7 +33,6 @@ import retrofit2.Response
 class MainActivity() : AppCompatActivity(){
     private var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
-    private lateinit var editsearch :EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,22 +41,9 @@ class MainActivity() : AppCompatActivity(){
         // setup adapter
         myAdapter = MyAdapter(articles)
 
-        editsearch = findViewById(R.id.sb_search)
-        //query search
-            editsearch.addTextChangedListener(object :TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                filterList(s.toString())
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
 
 
-        })
+
         // setup recycler_view
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
@@ -78,21 +65,15 @@ class MainActivity() : AppCompatActivity(){
 
             })
 
-
-
-    }
-
-    private fun filterList(filterItem: String) {
-        var tempList:MutableList<com.android.delicieuxapp.model.Restaurant> = ArrayList()
-
-        for (d in articles){
-            if(filterItem in d.restaurant.name.toString()){
-
-                tempList.add(d)
-            }
+        bt_sign.setOnClickListener {
+            val intent = Intent(this, login::class.java)
+            startActivity(intent)
         }
-        myAdapter.updateList(tempList)
+
+
     }
+
+
 
 }
 
