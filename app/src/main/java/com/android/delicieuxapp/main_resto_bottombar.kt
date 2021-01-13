@@ -17,7 +17,7 @@ import com.roughike.bottombar.BottomBar
 class RestoMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         //get intent parameter
-        val RestoID= intent.extras!!.getInt("id")
+        var b: Bundle? = null
 
 
         super.onCreate(savedInstanceState)
@@ -31,9 +31,12 @@ class RestoMain : AppCompatActivity() {
 
         //bundle and argument, utk kirim data activity ke fragment
         val args = Bundle()
-//        if (RestoID != null) {
-        args.putInt("ID", RestoID)
-//        }
+        b = intent.extras
+        var id = b?.getInt("id")
+        if (id != null) {
+            args.putInt("ID", id)
+        }
+
         firstFragment.setArguments(args)
         thirdFragment.setArguments(args)
 
