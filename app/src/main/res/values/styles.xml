@@ -23,5 +23,8 @@
         <item name="android:text">1dp</item>
 
     </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
 
 </resources>
