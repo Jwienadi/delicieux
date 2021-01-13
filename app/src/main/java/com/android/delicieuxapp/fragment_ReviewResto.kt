@@ -72,7 +72,7 @@ class FragmentReviewResto : Fragment() {
 
     fun apicall(view: View,id: Int) {
         Api.service<RestaurantReview>()
-            .getResId(16774318)
+            .getResId(id)
             .enqueue(object : Callback<ReviewsResponse> {
                 override fun onResponse(
                     call: Call<ReviewsResponse>,
