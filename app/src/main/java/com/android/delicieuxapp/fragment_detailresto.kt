@@ -24,8 +24,10 @@ class FragmentDetailResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.detail_resto, container, false)
+
+        //ambil data dr activity ke fragment
         val args = arguments
-        val id = args!!.getString("ID", "0")
+        val id = args!!.getInt("ID", 0)
         headerapicall(id)
         apicall(view,id)
 
@@ -47,7 +49,7 @@ class FragmentDetailResto : Fragment() {
         return view
     }
 
-    fun headerapicall(){
+    fun headerapicall(id: Int) {
         Api.service<RestaurantInfoService>()
             .getResInfo(1704205)
             .enqueue(object : Callback<RestoDetailResponse> {
@@ -84,7 +86,7 @@ class FragmentDetailResto : Fragment() {
 
     }
 
-    fun apicall(view: View,id: String) {
+    fun apicall(view: View,id: Int) {
         Api.service<RestaurantInfoService>()
             .getResInfo(id)
             .enqueue(object : Callback<RestoDetailResponse> {
