@@ -24,6 +24,10 @@ class RestoMain : AppCompatActivity() {
         setContentView(R.layout.resto_bottombar)
 
         val bottomBar = findViewById<View>(R.id.bottomBar) as? BottomBar
+//        val firstFragment= FragmentDetailResto()
+//        //val untuk fragment menu resto
+////        val secondFragment=SecondFragment()
+//        val thirdFragment= FragmentReviewResto()
         val firstFragment= FragmentDetailResto()
         //val untuk fragment menu resto
 //        val secondFragment=SecondFragment()
@@ -62,13 +66,14 @@ class RestoMain : AppCompatActivity() {
 //            }
 //            true
 //        }
-        val back = findViewById<View>(R.id.backToMain) as ImageButton
-        back.setOnClickListener { onBackPressed() }
+//        val back = findViewById<View>(R.id.backToMain) as ImageButton
+//        back.setOnClickListener { onBackPressed() }
     }
 
     private fun setCurrentFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,fragment)
+//            addToBackStack(null)
             commit()
         }
 
