@@ -48,6 +48,7 @@
             android:layout_marginTop="200dp"
             android:layout_marginLeft="25dp"
             android:hint="Password"
+            android:inputType = "textPassword"
             android:background="@drawable/editview"
             android:textColor="@color/Black"/>
 
