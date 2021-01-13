@@ -42,7 +42,7 @@ class FragmentReviewResto : Fragment() {
 
     fun headerapicall(id: Int){
         Api.service<RestaurantInfoService>()
-            .getResInfo(1704205)
+            .getResInfo(id)
             .enqueue(object : Callback<RestoDetailResponse> {
                 override fun onResponse(
                     call: Call<RestoDetailResponse>,
