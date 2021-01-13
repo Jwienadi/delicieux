@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
 
         // langsung pindah ke MainActivity atau activity lain
         // begitu memasuki splash screen ini
-        val intent = Intent(this, login::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
