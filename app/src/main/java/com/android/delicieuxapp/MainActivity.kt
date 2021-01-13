@@ -33,6 +33,8 @@ import retrofit2.Response
 class MainActivity() : AppCompatActivity(){
     private var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
+    private lateinit var editTextSearch: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +51,32 @@ class MainActivity() : AppCompatActivity(){
         recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
         recycler_view.adapter = myAdapter
 
+        editTextSearch = findViewById(R.id.searchEt)
+
+        // Search Button
+        editTextSearch.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                filterList(s.toString());
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+
+
+
+        })
+       // var id = searchEt.query.toString()
         //setup android networking
         AndroidNetworking.initialize(this)
 
-        AndroidNetworking.get("https://developers.zomato.com/api/v2.1/search?apikey=0d9669f4a2ef9bab2589dda088256b93")
+
+        AndroidNetworking.get(
+            "https://developers.zomato.com/api/v2.1/search?apikey=0d9669f4a2ef9bab2589dda088256b93")
             .build()
             .getAsObject(Reqres::class.java, object: ParsedRequestListener<Reqres> {
                 override fun onResponse(response: Reqres) {
@@ -71,8 +95,24 @@ class MainActivity() : AppCompatActivity(){
         }
 
 
+
+
+
     }
 
+    private fun filterList(filterItem: String) {
+
+        var tempList: MutableList<com.android.delicieuxapp.model.Restaurant> = ArrayList()
+
+        for (d in articles){
+
+            if(filterItem in d.restaurant.name){
+                tempList.add(d)
+
+            }
+        }
+        myAdapter.updateList(tempList)
+    }
 
 
 }

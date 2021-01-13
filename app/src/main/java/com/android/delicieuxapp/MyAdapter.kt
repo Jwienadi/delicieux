@@ -77,6 +77,11 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
         return articles.size
     }
 
+    fun updateList(list: MutableList<Restaurant>) {
+        articles = list
+        notifyDataSetChanged()
+    }
+
 
 }
 

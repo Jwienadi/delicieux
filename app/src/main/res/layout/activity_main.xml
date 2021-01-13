@@ -64,27 +64,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
-                    android:id="@+id/sb_search"
+                    android:id="@+id/searchEt"
+                    android:padding="10dp"
                     android:layout_marginTop="20dp"
-                    android:paddingLeft="12dp"
-                    android:layout_marginLeft="11dp"
-                    android:layout_marginRight="11dp"
-                    android:layout_width="350dp"
-                    android:layout_height="35dp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
                     android:hint="@string/search_bar"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/Black"
+                    android:textColorHint="@color/grey"
                     android:background="@drawable/background_form">
                 </EditText>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="6dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_baseline_search_24">
-
-                </ImageView>
 
             </LinearLayout>
 
@@ -100,7 +93,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="373dp"
                 tools:listitem="@layout/item_layout" />
 
 
