@@ -2,9 +2,11 @@ package com.android.delicieuxapp
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.roughike.bottombar.BottomBar
+
 
 //import kotlinx.android.synthetic.main.resto_bottombar.*
 
@@ -60,7 +62,8 @@ class RestoMain : AppCompatActivity() {
 //            }
 //            true
 //        }
-
+        val back = findViewById<View>(R.id.backToMain) as ImageButton
+        back.setOnClickListener { onBackPressed() }
     }
 
     private fun setCurrentFragment(fragment: Fragment)=
