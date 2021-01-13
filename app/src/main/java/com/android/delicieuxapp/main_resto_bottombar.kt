@@ -11,21 +11,29 @@ import com.roughike.bottombar.BottomBar
 //import kotlinx.android.synthetic.main.resto_bottombar.*
 
 
-//masih nyoba2, buat bottombar resto
+
 class RestoMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         //get intent parameter
-        val RestoID=intent.getStringExtra("id")
+        val RestoID=intent.extras?.getInt("id")
 
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resto_bottombar)
 
         val bottomBar = findViewById<View>(R.id.bottomBar) as? BottomBar
-        val firstFragment=FragmentDetailResto()
+        val firstFragment= FragmentDetailResto()
         //val untuk fragment menu resto
 //        val secondFragment=SecondFragment()
-        val thirdFragment=FragmentReviewResto()
+        val thirdFragment= FragmentReviewResto()
+
+        //bundle and argument, utk send data from activity to fragment
+        val args = Bundle()
+        if (RestoID != null) {
+            args.putInt("ID", RestoID)
+        }
+        firstFragment.setArguments(args)
+        thirdFragment.setArguments(args)
 
         setCurrentFragment(firstFragment)
 

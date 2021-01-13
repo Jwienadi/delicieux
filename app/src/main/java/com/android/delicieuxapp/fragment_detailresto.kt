@@ -18,16 +18,16 @@ import kotlinx.android.synthetic.main.detail_resto.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 
 class FragmentDetailResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.detail_resto, container, false)
-
-        headerapicall()
-        apicall(view)
+        val args = arguments
+        val id = args!!.getString("ID", "0")
+        headerapicall(id)
+        apicall(view,id)
 
         view.btn_gmaps.setOnClickListener {
             val url = it.getTag()
@@ -84,9 +84,9 @@ class FragmentDetailResto : Fragment() {
 
     }
 
-    fun apicall(view: View) {
+    fun apicall(view: View,id: String) {
         Api.service<RestaurantInfoService>()
-            .getResInfo(1704205)
+            .getResInfo(id)
             .enqueue(object : Callback<RestoDetailResponse> {
                 override fun onResponse(
                     call: Call<RestoDetailResponse>,
