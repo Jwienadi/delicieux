@@ -14,11 +14,16 @@ import com.roughike.bottombar.BottomBar
 //masih nyoba2, buat bottombar resto
 class RestoMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        //get intent parameter
+        val RestoID=intent.getStringExtra("id")
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resto_bottombar)
 
         val bottomBar = findViewById<View>(R.id.bottomBar) as? BottomBar
         val firstFragment=FragmentDetailResto()
+        //val untuk fragment menu resto
 //        val secondFragment=SecondFragment()
         val thirdFragment=FragmentReviewResto()
 
@@ -31,6 +36,9 @@ class RestoMain : AppCompatActivity() {
             if (tabId == R.id.tab_about) {
                 setCurrentFragment(firstFragment)
             }
+//            if (tabId == R.id.tab_menu) {
+//                setCurrentFragment(secondFragment)
+//            }
             if (tabId == R.id.tab_review) {
                 setCurrentFragment(thirdFragment)
             }
