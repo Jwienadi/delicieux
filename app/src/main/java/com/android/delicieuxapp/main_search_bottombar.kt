@@ -1,49 +1,57 @@
 package com.android.delicieuxapp
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
+import android.text.TextUtils.replace
 import android.text.TextWatcher
-import android.util.Log
+import android.view.View
 import android.widget.EditText
-import android.widget.SearchView
-import android.widget.Toast
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
-import com.android.delicieuxapp.API.Api
-import com.android.delicieuxapp.model.RestaurantX
-import com.android.delicieuxapp.API.Restaurant
-import com.android.delicieuxapp.API.RestoDetailResponse
 import com.android.delicieuxapp.model.Reqres
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
-import com.squareup.picasso.Picasso
+import com.roughike.bottombar.BottomBar
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.detail_resto.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
-class MainActivity() : AppCompatActivity(){
+class MainActivity2 : AppCompatActivity() {
+
     private var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     private lateinit var myAdapter: MyAdapter
     private lateinit var editTextSearch: EditText
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        //get intent parameter
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_bottombar)
+
+        val bottomBar = findViewById<View>(R.id.bottomBar1) as? BottomBar
+        val firstFragment = FragmentHome()
+        val secondFragment= FragmentProfile()
+
+        setCurrentFragment(firstFragment)
+
+
+        bottomBar?.setOnTabSelectListener { tabId ->
+
+            if (tabId == R.id.tab_search) {
+                setCurrentFragment(firstFragment)
+            }
+            if (tabId == R.id.tab_profile) {
+                setCurrentFragment(secondFragment)
+            }
+        }
 
         // setup adapter
         myAdapter = MyAdapter(articles)
-
-
-
 
         // setup recycler_view
         recycler_view.layoutManager = LinearLayoutManager(this)
@@ -53,7 +61,7 @@ class MainActivity() : AppCompatActivity(){
         editTextSearch = findViewById(R.id.searchEt)
 
         // Search Button
-        editTextSearch.addTextChangedListener(object: TextWatcher{
+        editTextSearch.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 filterList(s.toString());
             }
@@ -69,7 +77,7 @@ class MainActivity() : AppCompatActivity(){
 
 
         })
-       // var id = searchEt.query.toString()
+
         //setup android networking
         AndroidNetworking.initialize(this)
 
@@ -97,7 +105,12 @@ class MainActivity() : AppCompatActivity(){
 
 
 
+
+
+
+
     }
+
 
     private fun filterList(filterItem: String) {
 
@@ -113,11 +126,12 @@ class MainActivity() : AppCompatActivity(){
         myAdapter.updateList(tempList)
     }
 
-
+    private fun setCurrentFragment(fragment: Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment2,fragment)
+            commit()
+        }
 }
-
-
-
 
 
 

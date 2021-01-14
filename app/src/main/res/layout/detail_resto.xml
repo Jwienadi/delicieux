@@ -33,12 +33,16 @@
 
             <!-- Italiano Ristorante -->
             <TextView
+
+                app:autoSizeTextType="uniform"
                 android:id="@+id/tv_title_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/detailresto_nametitle"
                 android:layout_gravity="center_horizontal"/>
             <TextView
+
+                app:autoSizeTextType="uniform"
                 android:id="@+id/tv_title_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,6 +53,8 @@
                 />
 
             <TextView
+
+                app:autoSizeTextType="uniform"
                 android:id="@+id/tv_title_loc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
