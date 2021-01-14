@@ -62,7 +62,7 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
         }
 
 
-//jwhere
+
         holder.itemView.setOnClickListener {
             Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
             var i = Intent(context, RestoMain::class.java)
