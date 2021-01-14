@@ -25,25 +25,34 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="10dp">
-
-        <Button
-            android:id="@+id/bt_sign"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="center"
-            app:cornerRadius="15dp"
-            android:src="@drawable/sign"
-            android:text="@string/sign_in"
-            android:textColor="@color/White"
-            tools:ignore="RtlHardcoded">
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_logo_orange"/>
+            <Button
+                android:id="@+id/bt_sign"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="220dp"
+                android:gravity="center"
+                app:cornerRadius="15dp"
+                android:src="@drawable/sign"
+                android:text="@string/sign_in"
+                android:textColor="@color/White"
+                tools:ignore="RtlHardcoded">
 
-        </Button>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="57dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_logo_orange"/>
+            </Button>
+
+        </LinearLayout>
+
+
 
 
         <TextView
@@ -93,7 +102,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="373dp"
+                android:layout_height="match_parent"
                 tools:listitem="@layout/item_layout" />
 
 
