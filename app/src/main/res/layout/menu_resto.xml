@@ -24,18 +24,16 @@
         android:layout_marginHorizontal="40dp">
 
         <TextView
-            android:id="@+id/title_name"
+            android:id="@+id/tv_title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resto_name"
             android:textAppearance="@style/detailresto_nametitle"
             android:layout_gravity="center_horizontal"/>
 
         <TextView
-            android:id="@+id/title_type"
+            android:id="@+id/tv_title_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/resto_type"
             android:textAppearance="@style/detailresto_info"
             android:layout_gravity="center_horizontal"
             android:autoSizeStepGranularity="2sp"
@@ -43,10 +41,9 @@
             />
 
         <TextView
-            android:id="@+id/title_loc"
+            android:id="@+id/tv_title_loc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/resto_loc"
             android:textAppearance="@style/detailresto_info"
             android:layout_gravity="center_horizontal"
             android:autoSizeStepGranularity="2sp"
@@ -59,7 +56,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
             <RatingBar
-                android:id="@+id/title_rating"
+                android:id="@+id/rb_title_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numStars="5"
@@ -67,9 +64,9 @@
                 style="?android:attr/ratingBarStyleSmall"
                 android:progressTint="@color/DefaultOrange"/>
             <TextView
+                android:id="@+id/tv_title_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
                 android:textSize="13sp"
                 android:textColor="@color/Black"
                 />
