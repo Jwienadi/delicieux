@@ -29,7 +29,6 @@ class RestoMain : AppCompatActivity() {
 ////        val secondFragment=SecondFragment()
 //        val thirdFragment= FragmentReviewResto()
         val firstFragment= FragmentDetailResto()
-        //val untuk fragment menu resto
         val secondFragment=FragmentMenuResto()
         val thirdFragment= FragmentReviewResto()
 

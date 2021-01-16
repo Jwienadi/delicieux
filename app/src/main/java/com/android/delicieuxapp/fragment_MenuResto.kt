@@ -18,7 +18,7 @@ class FragmentMenuResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val view = inflater.inflate(R.layout.menu_resto, container,false)
+        val view = inflater.inflate(R.layout.menu_resto, container, false)
 
         val args = arguments
         val id = args!!.getInt("ID", 0)
@@ -28,7 +28,7 @@ class FragmentMenuResto : Fragment() {
         return view
     }
 
-    fun headerapicall(id: Int){
+    fun headerapicall(id: Int) {
         Api.service<RestaurantInfoService>()
                 .getResInfo(id)
                 .enqueue(object : Callback<RestoDetailResponse> {
@@ -38,22 +38,22 @@ class FragmentMenuResto : Fragment() {
                     ) {
 
                         tv_title_name.text = response.body()?.ResName
-                        var location= response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
-                        tv_title_loc.text= location
-                        var titleJenis:String
-                        if (response.body()?.ResJenis?.isEmpty()!!){
+                        var location = response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
+                        tv_title_loc.text = location
+                        var titleJenis: String
+                        if (response.body()?.ResJenis?.isEmpty()!!) {
                             titleJenis = response.body()?.ResCuisines!!
                         } else {
                             titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
                         }
-                        tv_title_type.text=titleJenis
+                        tv_title_type.text = titleJenis
 
                         var rating = response.body()?.ResRating?.ResAngkaRating
-                        rb_title_star.rating= rating?.toFloat()!!
-                        if (rating=="0"){
-                            rating="No Rating"
+                        rb_title_star.rating = rating?.toFloat()!!
+                        if (rating == "0") {
+                            rating = "No Rating"
                         }
-                        tv_title_rating.text=rating
+                        tv_title_rating.text = rating
                         val restoimg = response.body()?.ResPhotoUrl
                         if (restoimg == "") {
                             Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg").fit().centerCrop().into(iv_title)
@@ -67,3 +67,4 @@ class FragmentMenuResto : Fragment() {
                 })
 
     }
+}
