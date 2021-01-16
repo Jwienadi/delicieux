@@ -13,11 +13,11 @@ interface RestaurantInfoService {
     ): Call<RestoDetailResponse>
 }
 
-interface Restaurant {
-    @GET("search")
-    fun getSearch(
-        @Query("q") q : String
-    ): Call<MutableList<Restaurant>>
+interface Menu {
+    @GET("dailymenu")
+    fun getMenuId(
+        @Query("res_id") res_id: Int
+    ): Call<DailyMenus>
 }
 
 interface RestaurantReview {

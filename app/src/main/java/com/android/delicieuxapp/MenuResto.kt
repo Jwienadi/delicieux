@@ -1,11 +1,13 @@
 package com.android.delicieuxapp
 
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.android.delicieuxapp.API.Api
-import com.android.delicieuxapp.API.RestaurantInfoService
-import com.android.delicieuxapp.API.RestoDetailResponse
+import com.android.delicieuxapp.API.*
+import com.android.delicieuxapp.API.MenuResto
 import com.android.delicieuxapp.model.Reqres
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
@@ -18,6 +20,7 @@ import kotlinx.android.synthetic.main.detail_resto.tv_title_name
 import kotlinx.android.synthetic.main.detail_resto.tv_title_rating
 import kotlinx.android.synthetic.main.detail_resto.tv_title_type
 import kotlinx.android.synthetic.main.menu_resto.*
+import kotlinx.android.synthetic.main.review_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +31,7 @@ class MenuResto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         headerapicall()
+        apicall()
         setContentView(R.layout.menu_resto)
 //    linearLayoutManager = LinearLayoutManager(this)
 //    recyclerView.layoutManager = linearLayoutManager
@@ -70,4 +74,40 @@ class MenuResto : AppCompatActivity() {
         }
 
     }
+    fun apicall() {
+        b = intent.extras
+        var id = b?.getInt("id")
+        if (id != null) {
+            Api.service<Menu>()
+                    .getMenuId(id)
+                    .enqueue(object : Callback<MenuResponse> {
+                        override fun onResponse(
+                                call: Call<MenuResponse>,
+                                response: Response<MenuResponse>
+                        ) {
+                            response.body()?.menuhead?.map {dishes ->
+                                val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
+                                val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
+                                tvNama.setText(dishes.namamenu)
+                                val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
+                                tvStarNum.setText(dishes.hargamenu)
+                                val tvReview: TextView= view.findViewById(R.id.tv_reviewtext)
+
+                                val reviewtext:String
+                                if (dishes.namamenu == ""){
+                                    reviewtext=dishes.namamenu.toString()
+                                }  else {
+                                    reviewtext=dishes.hargamenu.toString()
+                                }
+                                tvReview.setText(reviewtext)
+                                jj_menu.addView(view)
+                            }
+                        }
+
+                        override fun onFailure(call: Call<MenuResponse>, t: Throwable) {
+                        }
+                    })
+        }
+
     }
+}

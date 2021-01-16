@@ -72,3 +72,25 @@ class user{
     @SerializedName("name")
     var ratingname: String? = ""
 }
+class MenuResto{
+    @SerializedName("name")
+    var namamenu: String? = ""
+    @SerializedName("price")
+    var hargamenu: String? = ""
+}
+class MenuResponse {
+    @SerializedName("dish")
+    var menuhead : MenuResto? = null
+}
+class MenuDishes {
+    @SerializedName("dishes")
+    var menuhead2: List<MenuResponse>? = null
+}
+class DailyMenu {
+    @SerializedName("daily_menu")
+    var menuhead3: List<MenuDishes>? = null
+}
+class DailyMenus {
+    @SerializedName("daily_menus")
+    var menuhead4: List<DailyMenu>? = null
+}

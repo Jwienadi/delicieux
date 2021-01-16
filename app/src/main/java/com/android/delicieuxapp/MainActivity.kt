@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import com.android.delicieuxapp.API.Api
 import com.android.delicieuxapp.model.RestaurantX
-import com.android.delicieuxapp.API.Restaurant
 import com.android.delicieuxapp.API.RestoDetailResponse
 import com.android.delicieuxapp.model.Reqres
 import com.androidnetworking.AndroidNetworking

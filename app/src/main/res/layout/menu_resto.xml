@@ -73,91 +73,51 @@
                 />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/jj_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/rectangle_1"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="25dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu"
+            style="@style/detailresto_head"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+        <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--    android:id="@+id/rv_review"-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+        <!--    android:orientation="vertical">-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Menu"
-        android:layout_marginTop="310dp"
-        android:layout_marginLeft="178dp"
-        android:textColor="@color/Black"
-        android:textSize="20dp"/>
+        <!--</androidx.recyclerview.widget.RecyclerView>-->
+        <TextView
+            android:id="@+id/tv_namamenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="340dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="The Canellioni"
-        android:layout_marginTop="340dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
+        <TextView
+            android:id="@+id/tv_hargamenu"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="360dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="An egg noodle stuffed with beef, veal and chicken, baked with meat sauce and cream"
-        android:layout_marginTop="360dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gabbriello Ravioli"
-        android:layout_marginTop="420dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Handmade noodles stuffed with a blend of fresh beef and veal and prepared in our Famous meat sauce"
-        android:layout_marginTop="438dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Manicotti Parmigiano"
-        android:layout_marginTop="498dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="An egg noodle stuffed with ricotta cheese, baked in tomato sauce and parmiggiano cheese"
-        android:layout_marginTop="515dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cavatelli Alla Crema"
-        android:layout_marginTop="575dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="An egg noodle stuffed with ricotta cheese, baked in tomato sauce and parmiggiano cheese"
-        android:layout_marginTop="595dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/Black"
-        android:textSize="15dp"/>
 
 
 

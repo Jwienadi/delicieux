@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.android.delicieuxapp.API.Api
-import com.android.delicieuxapp.API.RestaurantInfoService
-import com.android.delicieuxapp.API.RestoDetailResponse
+import com.android.delicieuxapp.API.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_resto.iv_title
 import kotlinx.android.synthetic.main.detail_resto.rb_title_star
@@ -16,6 +15,7 @@ import kotlinx.android.synthetic.main.detail_resto.tv_title_name
 import kotlinx.android.synthetic.main.detail_resto.tv_title_rating
 import kotlinx.android.synthetic.main.detail_resto.tv_title_type
 import kotlinx.android.synthetic.main.menu_resto.*
+import kotlinx.android.synthetic.main.review_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +29,7 @@ class FragmentMenuResto : Fragment() {
         val args = arguments
         val id = args!!.getInt("ID", 0)
         headerapicall(id)
+        //apicall(view, id)
 
 
         return view
@@ -74,3 +75,37 @@ class FragmentMenuResto : Fragment() {
 
     }
 }
+    //fun apicall(view: View,id: Int) {
+           // Api.service<Menu>()
+                    //.getMenuId(id)
+                   // .enqueue(object : Callback<DailyMenus> {
+                        //override fun onResponse(
+                                //call: Call<DailyMenus>,
+                               // response: Response<DailyMenus>
+                        //) {
+                            //response.body()?.menuhead4.me {dish ->
+                                //val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
+                                //val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
+
+                               //val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
+
+
+
+                               // if (dish.namamenu == ""){
+                                //    tvNama.setText("No Menu")
+                                //} else if (dish.hargamenu == ""){
+                               //     tvStarNum.setText("No Price")
+                               // } else {
+                               //     tvNama.setText(dish.namamenu)
+                               //     tvStarNum.setText(dish.hargamenu)
+                               // }
+                               // jj_menu.addView(view)
+                            //}
+                      //  }
+
+                      //  override fun onFailure(call: Call<DailyMenus>, t: Throwable) {
+                     //   }
+                    //})
+      //  }
+
+   // }
