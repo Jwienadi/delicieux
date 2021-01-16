@@ -30,7 +30,7 @@ class RestoMain : AppCompatActivity() {
 //        val thirdFragment= FragmentReviewResto()
         val firstFragment= FragmentDetailResto()
         //val untuk fragment menu resto
-//        val secondFragment=SecondFragment()
+        val secondFragment=FragmentMenuResto()
         val thirdFragment= FragmentReviewResto()
 
         //bundle and argument, utk kirim data activity ke fragment
@@ -42,6 +42,7 @@ class RestoMain : AppCompatActivity() {
         }
 
         firstFragment.setArguments(args)
+        secondFragment.setArguments(args)
         thirdFragment.setArguments(args)
 
         setCurrentFragment(firstFragment)
@@ -53,9 +54,9 @@ class RestoMain : AppCompatActivity() {
             if (tabId == R.id.tab_about) {
                 setCurrentFragment(firstFragment)
             }
-//            if (tabId == R.id.tab_menu) {
-//                setCurrentFragment(secondFragment)
-//            }
+            if (tabId == R.id.tab_menu) {
+               setCurrentFragment(secondFragment)
+            }
             if (tabId == R.id.tab_review) {
                 setCurrentFragment(thirdFragment)
             }
