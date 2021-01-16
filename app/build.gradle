@@ -45,5 +45,6 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.android.support:design:30.0.2'
 
 }
