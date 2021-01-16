@@ -11,7 +11,13 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.detail_resto.*
+import kotlinx.android.synthetic.main.detail_resto.iv_title
+import kotlinx.android.synthetic.main.detail_resto.rb_title_star
+import kotlinx.android.synthetic.main.detail_resto.tv_title_loc
+import kotlinx.android.synthetic.main.detail_resto.tv_title_name
+import kotlinx.android.synthetic.main.detail_resto.tv_title_rating
+import kotlinx.android.synthetic.main.detail_resto.tv_title_type
+import kotlinx.android.synthetic.main.menu_resto.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
