@@ -63,7 +63,7 @@
             android:text="Login"/>
 
         <Button
-            android:id="@+id/sign_in_btn"
+            android:id="@+id/btnLogin2"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginLeft="50dp"
