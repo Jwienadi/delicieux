@@ -31,7 +31,7 @@ class MenuResto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         headerapicall()
-        apicall()
+        //apicall()
         setContentView(R.layout.menu_resto)
 //    linearLayoutManager = LinearLayoutManager(this)
 //    recyclerView.layoutManager = linearLayoutManager
@@ -74,40 +74,40 @@ class MenuResto : AppCompatActivity() {
         }
 
     }
-    fun apicall() {
-        b = intent.extras
-        var id = b?.getInt("id")
-        if (id != null) {
-            Api.service<Menu>()
-                    .getMenuId(id)
-                    .enqueue(object : Callback<MenuResponse> {
-                        override fun onResponse(
-                                call: Call<MenuResponse>,
-                                response: Response<MenuResponse>
-                        ) {
-                            response.body()?.menuhead?.map {dishes ->
-                                val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
-                                val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
-                                tvNama.setText(dishes.namamenu)
-                                val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
-                                tvStarNum.setText(dishes.hargamenu)
-                                val tvReview: TextView= view.findViewById(R.id.tv_reviewtext)
+   // fun apicall() {
+       // b = intent.extras
+        //var id = b?.getInt("id")
+        //if (id != null) {
+          //  Api.service<Menu>()
+                   // .getMenuId(id)
+                  //  .enqueue(object : Callback<MenuResponse> {
+                      //  override fun onResponse(
+                     //           call: Call<MenuResponse>,
+                            //    response: Response<MenuResponse>
+                     //   ) {
+                        //    response.body()?.menuhead?.map {dishes ->
+                         //       val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
+                        //        val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
+                         //       tvNama.setText(dishes.namamenu)
+                          //      val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
+                          //      tvStarNum.setText(dishes.hargamenu)
+                           //     val tvReview: TextView= view.findViewById(R.id.tv_reviewtext)
 
-                                val reviewtext:String
-                                if (dishes.namamenu == ""){
-                                    reviewtext=dishes.namamenu.toString()
-                                }  else {
-                                    reviewtext=dishes.hargamenu.toString()
-                                }
-                                tvReview.setText(reviewtext)
-                                jj_menu.addView(view)
-                            }
-                        }
+                          //      val reviewtext:String
+                           //     if (dishes.namamenu == ""){
+                          //          reviewtext=dishes.namamenu.toString()
+                         //       }  else {
+                         //           reviewtext=dishes.hargamenu.toString()
+                         //       }
+                         //       tvReview.setText(reviewtext)
+                        //        jj_menu.addView(view)
+                        //    }
+                       // }
 
-                        override fun onFailure(call: Call<MenuResponse>, t: Throwable) {
-                        }
-                    })
-        }
+                     //   override fun onFailure(call: Call<MenuResponse>, t: Throwable) {
+                     //   }
+                  //  })
+        }//
 
-    }
-}
+   // }
+

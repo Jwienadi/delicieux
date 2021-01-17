@@ -7,7 +7,7 @@
     android:background="@drawable/delicieuxbg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".login">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -61,6 +61,9 @@
             android:background="@drawable/btnlogin"
             android:textColor="@color/Black"
             android:text="Login"/>
+
+
+
 
     </RelativeLayout>
 </LinearLayout>
