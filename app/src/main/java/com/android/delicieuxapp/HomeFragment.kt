@@ -23,6 +23,11 @@ class HomeFragment : Fragment() {
     val lm = LinearLayoutManager(activity)
     var articles: MutableList<com.android.delicieuxapp.model.Restaurant> = mutableListOf()
     lateinit var editTextSearch: EditText
+    var sampleImages = intArrayOf(
+        R.drawable.carosel1,
+        R.drawable.carouselll22
+
+    )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -31,7 +36,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        carouselView.setImageListener { position, imageView ->
+            imageView.setImageResource(sampleImages[position])
+        }
+        carouselView.pageCount = sampleImages.size
         initView()
+
+
         AndroidNetworking.initialize(activity)
 
 
