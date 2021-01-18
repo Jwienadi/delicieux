@@ -67,10 +67,10 @@ class HomeFragment : Fragment() {
 
         })
 
-        bt_sign.setOnClickListener {
-            val intent = Intent(activity, login::class.java)
-            startActivity(intent)
-        }
+        //bt_sign.setOnClickListener {
+           // val intent = Intent(activity, login::class.java)
+           // startActivity(intent)
+      //  }
     }
 
 

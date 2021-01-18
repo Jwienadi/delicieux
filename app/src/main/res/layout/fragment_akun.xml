@@ -127,6 +127,14 @@
             </EditText>
         </LinearLayout>
 
+        <Button
+            android:id="@+id/sign_out_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="@string/sign_out"
+            android:textAllCaps="false"/>
+
 
     </LinearLayout>
 

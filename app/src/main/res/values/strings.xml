@@ -25,5 +25,6 @@
     <string name="sign_in">Sign In</string>
     <string name="home">Home</string>
     <string name="akun">Account</string>
+    <string name="sign_out">Sign out</string>
 
 </resources>
