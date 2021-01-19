@@ -6,6 +6,7 @@ import android.view.View
 import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.*
 import com.squareup.picasso.Picasso
