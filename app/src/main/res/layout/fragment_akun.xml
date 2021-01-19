@@ -3,140 +3,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AkunFragment">
 
 
+
     <LinearLayout
-        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="50dp">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            app:civ_border_color="@color/DefaultOrange"
+            app:civ_border_width="2dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
         <TextView
             android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/data"
+            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:text="@string/my"
-            android:textSize="24dp"
-            android:textColor="@color/DefaultOrange"
-            android:layout_gravity="center">
+            android:text="@string/lname"
+            android:textColor="@color/Black">
+
         </TextView>
-
         <LinearLayout
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="11dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textColor="@color/Black">
-            </TextView>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ex.jwienadi@gmail.com"
-                android:textColor="@color/grey">
-
-            </EditText>
-        </LinearLayout>
-        <LinearLayout
+            android:layout_marginLeft="11dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="11dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fname"
                 android:textColor="@color/Black">
+
             </TextView>
 
             <EditText
+                android:id="@+id/name"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="4dp"
+                android:editable="false"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ex.Muhammad"
-                android:textColor="@color/grey">
+                android:layout_height="50dp"
+                android:textColor="@color/Black"
+                android:background="@drawable/background_form">
 
             </EditText>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="11dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="60dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lname"
+                android:text="@string/email"
                 android:textColor="@color/Black">
+
             </TextView>
 
             <EditText
+                android:id="@+id/email"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ex.Daral"
-                android:textColor="@color/grey">
+                android:layout_height="50dp"
+                android:paddingLeft="4dp"
+                android:textSize="16sp"
+                android:editable="false"
+                android:layout_weight="1"
+                android:textColor="@color/Black"
+                android:background="@drawable/background_form">
 
             </EditText>
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="11dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/birth"
-                android:textColor="@color/Black">
-            </TextView>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ex.1999-12-30"
-                android:textColor="@color/grey">
 
-            </EditText>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="11dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hp"
-                android:textColor="@color/Black">
-            </TextView>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ex.+6285727796543"
-                android:textColor="@color/grey">
-
-            </EditText>
-        </LinearLayout>
 
         <Button
             android:id="@+id/sign_out_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:text="@string/sign_out"
-            android:textAllCaps="false"/>
+            android:layout_marginTop="100dp"
+            android:textColor="@color/White"
+            android:background="@drawable/btnlogin"
+            android:text="@string/sign_out"/>
 
 
     </LinearLayout>
+
+
 
 
 

@@ -11,9 +11,9 @@
     <string name="search_bar">Search Restaurant..</string>
     <string name="comb_kate">Newest first </string>
     <string name="my">My Profile</string>
-    <string name="email">E-mail address</string>
-    <string name="fname">First name</string>
-    <string name="lname">Last name</string>
+    <string name="email">E-mail</string>
+    <string name="fname">Name</string>
+    <string name="lname">Data Not Found</string>
     <string name="birth">Birthdate</string>
     <string name="hp">Mobile</string>
     <string name="fafo">Favorite Food</string>
