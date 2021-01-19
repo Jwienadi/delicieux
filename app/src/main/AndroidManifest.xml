@@ -46,6 +46,7 @@
             </intent-filter>
         </activity>
 
+
 <!--            <activity android:name=".DetailResto">-->
             <!-- <activity android:name=".ReviewResto"> -->
             <!-- <activity android:name=".RestoMain"> -->

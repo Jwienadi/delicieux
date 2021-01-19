@@ -26,19 +26,23 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MenuResto : AppCompatActivity() {
-    var b : Bundle? = null
+    var b: Bundle? = null
+
     //    private lateinit var linearLayoutManager: LinearLayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         headerapicall()
-        //apicall()
+        apicall()
         setContentView(R.layout.menu_resto)
+
 //    linearLayoutManager = LinearLayoutManager(this)
 //    recyclerView.layoutManager = linearLayoutManager
     }
-    fun headerapicall(){
+
+    fun headerapicall() {
         b = intent.extras
-        var id = b?.getInt("id")
+     //   var id = b?.getInt("id")
+        var id = 16507624
         if (id != null) {
             Api.service<RestaurantInfoService>()
                     .getResInfo(id)
@@ -49,18 +53,18 @@ class MenuResto : AppCompatActivity() {
                         ) {
 
                             tv_title_name.text = response.body()?.ResName
-                            var location= response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
-                            tv_title_loc.text= location
+                            var location = response.body()?.ResLocData?.ResLocname + " , " + response.body()?.ResLocData?.ResCity
+                            tv_title_loc.text = location
                             var titleJenis = response.body()?.ResJenis?.get(0) + " - " + response.body()?.ResCuisines
-                            tv_title_type.text=titleJenis
+                            tv_title_type.text = titleJenis
 
                             var rating = response.body()?.ResRating?.ResAngkaRating
-                            rb_title_star.rating= rating?.toFloat()!!
-                            if (rating=="0"){
-                                rating="No Rating"
+                            rb_title_star.rating = rating?.toFloat()!!
+                            if (rating == "0") {
+                                rating = "No Rating"
                             }
-                            tv_title_rating.text=rating
-                            if(response.body()?.ResPhotoUrl == ""){
+                            tv_title_rating.text = rating
+                            if (response.body()?.ResPhotoUrl == "") {
                                 Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg"
                                 ).into(iv_title)
                             } else {
@@ -74,40 +78,48 @@ class MenuResto : AppCompatActivity() {
         }
 
     }
-   // fun apicall() {
-       // b = intent.extras
-        //var id = b?.getInt("id")
-        //if (id != null) {
-          //  Api.service<Menu>()
-                   // .getMenuId(id)
-                  //  .enqueue(object : Callback<MenuResponse> {
-                      //  override fun onResponse(
-                     //           call: Call<MenuResponse>,
-                            //    response: Response<MenuResponse>
-                     //   ) {
-                        //    response.body()?.menuhead?.map {dishes ->
-                         //       val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
-                        //        val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
-                         //       tvNama.setText(dishes.namamenu)
-                          //      val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
-                          //      tvStarNum.setText(dishes.hargamenu)
-                           //     val tvReview: TextView= view.findViewById(R.id.tv_reviewtext)
 
-                          //      val reviewtext:String
-                           //     if (dishes.namamenu == ""){
-                          //          reviewtext=dishes.namamenu.toString()
-                         //       }  else {
-                         //           reviewtext=dishes.hargamenu.toString()
-                         //       }
-                         //       tvReview.setText(reviewtext)
-                        //        jj_menu.addView(view)
-                        //    }
-                       // }
+    fun apicall() {
+        b = intent.extras
+      //  var id = b?.getInt("id")
+        var id = 16507624
+        if (id != null) {
+            Api.service<Menu>()
+                    .getMenuId(id)
+                    .enqueue(object : Callback<DailyMenus> {
+                        override fun onResponse(
+                                call: Call<DailyMenus>,
+                                response: Response<DailyMenus>
+                        ) {
+                            response.body()?.menuhead4?.map { daily_menu ->
+                                daily_menu?.menuhead3?.menuhead2?.map { dishes ->
+                                    val view: View = layoutInflater.inflate(R.layout.menu_fill, null)
+                                    val tvNamamenu: TextView = view.findViewById(R.id.tv_namamenu1)
+                                    tvNamamenu.setText(dishes.menuhead?.namamenu)
+                                    val tvHargamenu: TextView = view.findViewById(R.id.tv_hargamenu1)
+                                    tvHargamenu.setText(dishes.menuhead?.hargamenu)
+                                    val tvnamamenu2 = dishes.menuhead?.namamenu
 
-                     //   override fun onFailure(call: Call<MenuResponse>, t: Throwable) {
-                     //   }
-                  //  })
-        }//
+//                                    val tvReview: TextView = view.findViewById(R.id.tv_reviewtext)
+//
+//                                    val reviewtext: String
+//                                    if (dishes.namamenu == "") {
+//                                        reviewtext = dishes.namamenu.toString()
+//                                    } else {
+//                                        reviewtext = dishes.hargamenu.toString()
+//                                    }
+//                                    tvReview.setText(reviewtext)
+                                   jj_menu.addView(view)
+                              }
+                            }
+                        }
 
-   // }
+                        override fun onFailure(call: Call<DailyMenus>, t: Throwable) {
+                        }
+
+                    })
+
+        }
+    }
+}
 

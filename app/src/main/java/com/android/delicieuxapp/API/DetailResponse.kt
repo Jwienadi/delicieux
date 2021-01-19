@@ -88,7 +88,7 @@ class MenuDishes {
 }
 class DailyMenu {
     @SerializedName("daily_menu")
-    var menuhead3: List<MenuDishes>? = null
+    var menuhead3: MenuDishes? = null
 }
 class DailyMenus {
     @SerializedName("daily_menus")

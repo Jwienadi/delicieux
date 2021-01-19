@@ -3,6 +3,7 @@ package com.android.delicieuxapp
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -23,13 +24,13 @@ import retrofit2.Response
 class FragmentMenuResto : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val view = inflater.inflate(R.layout.menu_resto, container, false)
+
 
         val args = arguments
         val id = args!!.getInt("ID", 0)
         headerapicall(id)
-        //apicall(view, id)
+        apicall(view, id)
 
 
         return view
@@ -74,38 +75,41 @@ class FragmentMenuResto : Fragment() {
                 })
 
     }
+
+    fun apicall(view: View, id: Int) {
+        Api.service<Menu>()
+                .getMenuId(id)
+                .enqueue(object : Callback<DailyMenus> {
+                    override fun onResponse(
+                            call: Call<DailyMenus>,
+                            response: Response<DailyMenus>
+                    ) {
+                        response.body()?.menuhead4?.map { daily_menu ->
+                            daily_menu?.menuhead3?.menuhead2?.map { dishes ->
+                                val view: View = LayoutInflater.inflate(R.layout.menu_fill, null)
+                                val tvNamamenu: TextView = view.findViewById(R.id.tv_namamenu1)
+                                tvNamamenu.setText(dishes.menuhead?.namamenu)
+                                val tvHargamenu: TextView = view.findViewById(R.id.tv_hargamenu1)
+                                tvHargamenu.setText(dishes.menuhead?.hargamenu)
+
+//                                    val tvReview: TextView = view.findViewById(R.id.tv_reviewtext)
+//
+//                                    val reviewtext: String
+//                                    if (dishes.namamenu == "") {
+//                                        reviewtext = dishes.namamenu.toString()
+//                                    } else {
+//                                        reviewtext = dishes.hargamenu.toString()
+//                                    }
+//                                    tvReview.setText(reviewtext)
+                                jj_menu.addView(view)
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<DailyMenus>, t: Throwable) {
+                    }
+
+                })
+
+    }
 }
-    //fun apicall(view: View,id: Int) {
-           // Api.service<Menu>()
-                    //.getMenuId(id)
-                   // .enqueue(object : Callback<DailyMenus> {
-                        //override fun onResponse(
-                                //call: Call<DailyMenus>,
-                               // response: Response<DailyMenus>
-                        //) {
-                            //response.body()?.menuhead4.me {dish ->
-                                //val view: View = layoutInflater.inflate(R.layout.menu_resto, null)
-                                //val tvNama: TextView = view.findViewById(R.id.tv_namamenu)
-
-                               //val tvStarNum: TextView = view.findViewById(R.id.tv_hargamenu)
-
-
-
-                               // if (dish.namamenu == ""){
-                                //    tvNama.setText("No Menu")
-                                //} else if (dish.hargamenu == ""){
-                               //     tvStarNum.setText("No Price")
-                               // } else {
-                               //     tvNama.setText(dish.namamenu)
-                               //     tvStarNum.setText(dish.hargamenu)
-                               // }
-                               // jj_menu.addView(view)
-                            //}
-                      //  }
-
-                      //  override fun onFailure(call: Call<DailyMenus>, t: Throwable) {
-                     //   }
-                    //})
-      //  }
-
-   // }
