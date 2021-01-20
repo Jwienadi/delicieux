@@ -51,6 +51,7 @@
                     <EditText
                         style="@style/editTextEntryName"
                         android:id="@+id/searchEt"
+                        android:inputType="textCapWords"
                         android:padding="10dp"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
