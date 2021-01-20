@@ -91,6 +91,18 @@
             android:layout_gravity="center_horizontal"
             android:textStyle="bold"
             android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/tv_nomenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu Not Available\nfor this restaurant"
+            android:layout_marginVertical="80dp"
+            style="@style/detailresto_head"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            />
         <!--<androidx.recyclerview.widget.RecyclerView-->
         <!--    android:id="@+id/rv_review"-->
         <!--    android:layout_width="match_parent"-->

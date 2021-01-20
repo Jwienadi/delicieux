@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.*
 import com.squareup.picasso.Picasso
@@ -83,13 +84,19 @@ class FragmentMenuResto : Fragment() {
                             call: Call<DailyMenus>,
                             response: Response<DailyMenus>
                     ) {
-                        response.body()?.menuhead4?.map { daily_menu ->
-                            daily_menu?.menuhead3?.menuhead2?.map { dishes ->
-                                val view: View = layoutInflater.inflate(R.layout.menu_fill, null)
-                                val tvNamamenu: TextView = view.findViewById(R.id.tv_namamenu1)
-                                tvNamamenu.setText(dishes.menuhead?.namamenu)
-                                val tvHargamenu: TextView = view.findViewById(R.id.tv_hargamenu1)
-                                tvHargamenu.setText(dishes.menuhead?.hargamenu)
+
+                        if (response.body()?.menuhead4 == null) {
+                            tv_nomenu.visibility=View.VISIBLE
+                        } else {
+                            tv_nomenu.visibility=View.GONE
+                            response.body()?.menuhead4?.map { daily_menu ->
+                                daily_menu?.menuhead3?.menuhead2?.map { dishes ->
+                                    val view: View = layoutInflater.inflate(R.layout.menu_fill, null)
+                                    val tvNamamenu: TextView = view.findViewById(R.id.tv_namamenu1)
+                                    tvNamamenu.setText(dishes.menuhead?.namamenu)
+                                    val tvHargamenu: TextView =
+                                        view.findViewById(R.id.tv_hargamenu1)
+                                    tvHargamenu.setText(dishes.menuhead?.hargamenu)
 
 //                                    val tvReview: TextView = view.findViewById(R.id.tv_reviewtext)
 //
@@ -100,11 +107,11 @@ class FragmentMenuResto : Fragment() {
 //                                        reviewtext = dishes.hargamenu.toString()
 //                                    }
 //                                    tvReview.setText(reviewtext)
-                                jj_menu.addView(view)
+                                    jj_menu.addView(view)
+                                }
                             }
                         }
                     }
-
                     override fun onFailure(call: Call<DailyMenus>, t: Throwable) {
                     }
 
