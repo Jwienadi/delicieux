@@ -4,15 +4,18 @@
         id="@+id/tab_about"
         icon="@drawable/ic_baseline_info_24"
         title="About"
-        barColorWhenSelected="#F79928" />
+        barColorWhenSelected="#F79928"
+        inActiveColor="#714613"/>
     <tab
         id="@+id/tab_menu"
         icon="@drawable/ic_baseline_menu_book_24"
         title="Menu"
-        barColorWhenSelected="#F79928" />
+        barColorWhenSelected="#F79928"
+        inActiveColor="#714613"/>
     <tab
         id="@+id/tab_review"
         icon="@drawable/ic_baseline_rate_review_24"
         title="Review"
-        barColorWhenSelected="#F79928" />
+        barColorWhenSelected="#F79928"
+        inActiveColor="#714613"/>
 </tabs>
