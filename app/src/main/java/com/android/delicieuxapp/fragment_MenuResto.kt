@@ -3,10 +3,8 @@ package com.android.delicieuxapp
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.fragment.app.Fragment
 import com.android.delicieuxapp.API.*
 import com.squareup.picasso.Picasso
@@ -87,7 +85,7 @@ class FragmentMenuResto : Fragment() {
                     ) {
                         response.body()?.menuhead4?.map { daily_menu ->
                             daily_menu?.menuhead3?.menuhead2?.map { dishes ->
-                              //  val view: View = LayoutInflater.inflate(R.layout.menu_fill, null)
+                                val view: View = layoutInflater.inflate(R.layout.menu_fill, null)
                                 val tvNamamenu: TextView = view.findViewById(R.id.tv_namamenu1)
                                 tvNamamenu.setText(dishes.menuhead?.namamenu)
                                 val tvHargamenu: TextView = view.findViewById(R.id.tv_hargamenu1)
