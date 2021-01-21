@@ -69,7 +69,7 @@ class FragmentReviewResto : Fragment() {
                     tv_title_rating.text=rating
                     val restoimg = response.body()?.ResPhotoUrl
                     if (restoimg == "") {
-                        Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg").fit().centerCrop().into(iv_title)
+                        Picasso.get().load(R.drawable.carosel1).fit().centerCrop().into(iv_title)
                     } else {
                         Picasso.get().load(restoimg).fit().centerCrop().into(iv_title)
                     }

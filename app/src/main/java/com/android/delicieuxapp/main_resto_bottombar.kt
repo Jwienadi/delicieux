@@ -36,7 +36,7 @@ class RestoMain : AppCompatActivity() {
         val args = Bundle()
         b = intent.extras
         var id = b?.getInt("id")
-//        var id = 16507624
+        //  var id = 16507624
         if (id != null) {
             args.putInt("ID", id)
         }

@@ -54,9 +54,15 @@ class MyAdapter (private var articles:MutableList<Restaurant>) : RecyclerView.Ad
 
         val imago = data.restaurant.featuredImage
 
+//        if(imago == ""){
+//            Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg"
+//            ).into(img)
+//        } else {
+//            Picasso.get().load(data.restaurant.featuredImage).into(img)
+//        }
+
         if(imago == ""){
-            Picasso.get().load("https://krenova.bp3d.boyolali.go.id/images/no-image-available.jpg"
-            ).into(img)
+            Picasso.get().load(R.drawable.carosel1).into(img)
         } else {
             Picasso.get().load(data.restaurant.featuredImage).into(img)
         }
